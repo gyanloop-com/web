@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - GyanLoop</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.ibb.co/jkpPLS84/ga.png" type="image/png">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #ffff00; /* Bright yellow */
+            --secondary: #ffffff; /* White */
+            --accent: #ffff00; /* Yellow as accent */
+            --dark: #000000; /* Black */
+            --darker: #000000; /* Even darker black */
+            --light: #ffffff; /* White */
+            --lighter: #ffffff; /* White */
+            --gray: #1a1a1a; /* Dark gray for subtle contrast */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tiro Bangla', 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+        }
+        
+        /* Main Content */
+        .privacy-content {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+            border-bottom: 1px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--light);
+            opacity: 0.9;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            opacity: 0.9;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: var(--secondary);
+        }
+        
+        .last-updated {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: #212529;
+            color: white;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(138, 43, 226, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--lighter);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        #p3 {
+            color: yellow;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo" style="width: 30px; height: 30px;">
+            </div>
+            <span>GyanLoop</span>
+        </div>
+    </header>
+
+    <!-- Privacy Policy Content -->
+    <div class="container">
+        <div class="privacy-content">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: May 21, 2025</p>
+            
+            <p>Welcome to GyanLoop ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.</p>
+            
+            <h2>1. Information We Collect</h2>
+            <p>We may collect the following types of information:</p>
+            
+            <h3>Personal Information</h3>
+            <ul>
+                <li>Name</li>
+                <li>Email address</li>
+                <li>Phone number</li>
+                <li>Payment information (processed securely by our payment processors)</li>
+                <li>Educational background and interests</li>
+            </ul>
+            
+            <h3>Usage Data</h3>
+            <ul>
+                <li>IP address</li>
+                <li>Browser type and version</li>
+                <li>Pages visited on our site</li>
+                <li>Time and date of visits</li>
+                <li>Time spent on pages</li>
+                <li>Other diagnostic data</li>
+            </ul>
+            
+            <h3>Cookies and Tracking Technologies</h3>
+            <p>We use cookies and similar tracking technologies to track activity on our website and hold certain information to improve your experience.</p>
+            
+            <h2>2. How We Use Your Information</h2>
+            <p>We use the collected information for various purposes:</p>
+            <ul>
+                <li>To provide and maintain our service</li>
+                <li>To notify you about changes to our service</li>
+                <li>To allow you to participate in interactive features of our service</li>
+                <li>To provide customer support</li>
+                <li>To gather analysis or valuable information so that we can improve our service</li>
+                <li>To monitor the usage of our service</li>
+                <li>To detect, prevent, and address technical issues</li>
+                <li>To provide you with news, special offers, and general information about other goods, services, and events which we offer</li>
+            </ul>
+            
+            <h2>3. Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to maintain the safety of your personal information. However, no internet transmission or electronic storage is 100% secure, so we cannot guarantee absolute security.</p>
+            
+            <h2>4. Data Retention</h2>
+            <p>We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy.</p>
+            
+            <h2>5. Disclosure of Data</h2>
+            <p>We may disclose your personal information in the following situations:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> We may employ third-party companies and individuals to facilitate our service, provide the service on our behalf, perform service-related services, or assist us in analyzing how our service is used.</li>
+                <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or asset sale, your personal information may be transferred.</li>
+                <li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in response to valid requests by public authorities.</li>
+            </ul>
+            
+            <h2>6. Children's Privacy</h2>
+            <p>Our service does not address anyone under the age of 7. We do not knowingly collect personally identifiable information from children under 7.</p>
+            
+            <h2>7. Your Data Protection Rights</h2>
+            <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+            <ul>
+                <li>The right to access, update, or delete your information</li>
+                <li>The right of rectification</li>
+                <li>The right to object</li>
+                <li>The right of restriction</li>
+                <li>The right to data portability</li>
+                <li>The right to withdraw consent</li>
+            </ul>
+            
+            <h2>8. Third-Party Links</h2>
+            <p>Our service may contain links to other sites not operated by us. We strongly advise you to review the privacy policy of every site you visit.</p>
+            
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>By email: info.gyanloop@gmail.com</li>
+                <li>By visiting the contact page on our website</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>GyanLoop</h3>
+                <p id="p3">Where talent spreads its wings through learning.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Subjects</h3>
+                <ul>
+                    <li><a href="#">Mathematics</a></li>
+                    <li><a href="#">Physics</a></li>
+                    <li><a href="#">Chemistry</a></li>
+                    <li><a href="#">Biology</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Interactive Tools</a></li>
+                    <li><a href="#">Practice Problems</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                    <li><a href="#">STEM Career Paths</a></li>
+                    <li><a href="#">Educator Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="p3">&copy; 2025 GyanLoop. All rights reserved.</p> <p> | Sumit Haldar |</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
