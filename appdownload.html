@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Gyanloop APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --play-green: #25D366; /* WhatsApp green */
+            --play-dark-green: #128C7E;
+            --app-blue: #4285F4; /* Gyanloop app color */
+            --app-dark-blue: #3367D6;
+            --header-gradient: linear-gradient(135deg, #075E54, #128C7E);
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --bg-dark: #121212;
+            --card-dark: #1E1E1E;
+            --text-dark: #E0E0E0;
+            --text-secondary-dark: #B0B0B0;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
+        }
+        
+        .header {
+            background: var(--header-gradient);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0.5rem 0 1.5rem;
+        }
+        
+        .app-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .app-card {
+            background: var(--card-dark);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .app-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .app-icon:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .app-info {
+            flex: 1;
+        }
+        
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0 0 0.3rem;
+            color: white;
+        }
+        
+        .app-developer {
+            color: var(--text-secondary-dark);
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stars {
+            color: #FFC107;
+            margin-right: 0.5rem;
+        }
+        
+        .rating-count {
+            color: var(--text-secondary-dark);
+            font-size: 0.9rem;
+        }
+        
+        .app-content {
+            padding: 1.5rem;
+        }
+        
+        .screenshots {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            scrollbar-width: thin;
+        }
+        
+        .screenshots::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .screenshots::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+        
+        .screenshots::-webkit-scrollbar-thumb {
+            background: var(--play-green);
+            border-radius: 3px;
+        }
+        
+        .screenshot {
+            height: 300px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+        
+        .description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .features {
+            margin: 1.5rem 0;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+        
+        .feature-icon {
+            margin-right: 1rem;
+            color: var(--play-green);
+            font-size: 1.2rem;
+        }
+        
+        .download-section {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 0 0 12px 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37,211,102,0.1) 0%, transparent 70%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .download-section:hover::before {
+            opacity: 1;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .app-download-btn {
+            background-color: var(--app-blue);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .app-download-btn:hover {
+            background-color: var(--app-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(66, 133, 244, 0.4);
+            letter-spacing: 0.5px;
+        }
+        
+        .app-download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .whatsapp-btn {
+            background-color: var(--play-green);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: var(--play-dark-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+            letter-spacing: 0.5px;
+        }
+        
+        .whatsapp-btn:active {
+            transform: translateY(0);
+        }
+        
+        .download-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .file-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary-dark);
+            margin-top: 0.5rem;
+        }
+        
+        .whatsapp-contact {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(37,211,102,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-contact:hover {
+            background: rgba(37,211,102,0.2);
+        }
+        
+        .whatsapp-icon {
+            color: var(--play-green);
+            font-size: 1.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-secondary-dark);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(37,211,102,0.5); }
+            50% { box-shadow: 0 0 20px rgba(37,211,102,0.8); }
+            100% { box-shadow: 0 0 5px rgba(37,211,102,0.5); }
+        }
+        
+        @keyframes app-glow {
+            0% { box-shadow: 0 0 5px rgba(66,133,244,0.5); }
+            50% { box-shadow: 0 0 20px rgba(66,133,244,0.8); }
+            100% { box-shadow: 0 0 5px rgba(66,133,244,0.5); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        .app-glow {
+            animation: app-glow 3s ease-in-out infinite;
+        }
+        
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dark);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(30deg);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .app-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .app-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .screenshot {
+                height: 200px;
+            }
+            
+            .app-download-btn, .whatsapp-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .button-group {
+                flex-direction: row;
+            }
+            
+            .app-download-btn, .whatsapp-btn {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <div class="header">
+        <div class="header-content">
+            <h1>Gyanloop App</h1>
+            <p class="tagline">Your academic assistant Mobile app</p>
+        </div>
+    </div>
+    
+    <div class="app-container">
+        <div class="app-card">
+            <div class="app-header">
+                <div class="app-icon floating">
+                    <img src="https://i.ibb.co/0VCHsqH4/kk.png" alt="Gyanloop Logo">
+                </div>
+                <div class="app-info">
+                    <h2 class="app-title">Gyanloop App</h2>
+                    <p class="app-developer">Gyanloop Inc.</p>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">1,254 reviews</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-content">
+                <div class="screenshots">
+                    <img src="https://i.ibb.co/Rk9jRBXT/Whats-App-Image-2025-05-26-at-22-20-11-f6649d1c.jpg" class="screenshot" alt="Gyanloop Screenshot 1">
+                    <img src="https://i.ibb.co/fY2vMtT6/Whats-App-Image-2025-05-26-at-22-20-10-7dd074ae.jpg" class="screenshot" alt="Gyanloop Screenshot 2">
+                    <img src="https://i.ibb.co/NgD9KC2x/Whats-App-Image-2025-05-26-at-22-20-10-c3040365.jpg" class="screenshot" alt="Gyanloop Screenshot 3">
+                </div>
+                
+                <div class="description">
+                    <h3>About Gyanloop</h3>
+                    <p>Gyanloop offers two powerful ways to enhance your learning experience:</p>
+                    <p><strong>1. Mobile App:</strong> The full-featured Gyanloop application with advanced study tools, progress tracking, and comprehensive learning materials.</p>
+                    <p><strong>2. WhatsApp ssupport :</strong> Get instant academic assistance by messaging +9474165029 on WhatsApp. No installation required!</p>
+                </div>
+                
+                <div class="features">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                            <div>AI-powered instant answers to academic questions</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div>WhatsApp integration - chat with our team</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div>Full-featured mobile app with additional features</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>Personalized study recommendations</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-question"></i></div>
+                            <div>Interactive quizzes and practice tests</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon"><i class="fas fa-book"></i></div>
+                            <div>Access to comprehensive study materials</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-section">
+                    <div class="button-group">
+                        <button class="app-download-btn app-glow" onclick="downloadApp()">
+                            <i class="fas fa-download download-icon"></i>
+                            Download Gyanloop App
+                        </button>
+                        <button class="whatsapp-btn pulse" onclick="startWhatsAppChat()">
+                            <i class="fab fa-whatsapp download-icon"></i>
+                            Chat on WhatsApp
+                        </button>
+                    </div>
+                    
+                    <p class="file-info">App: APK File • 6.1MB • Version 1.0</p>
+                    <p class="file-info">WhatsApp: Send "Hi" to +9474165029 to activate</p>
+                    
+                    <div class="whatsapp-contact">
+                        <i class="fab fa-whatsapp whatsapp-icon"></i>
+                        <span>Contact Support: <strong>+9474165029</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 Gyanloop Inc. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Function to open WhatsApp chat
+        function startWhatsAppChat() {
+            const phoneNumber = '9474165029';
+            const message = 'Hi';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Add animation to button
+            const btn = document.querySelector('.whatsapp-btn');
+            btn.classList.add('downloading');
+            btn.innerHTML = '<i class="fab fa-whatsapp download-icon"></i> Opening WhatsApp...';
+            
+            // Small delay to allow animation to be seen
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                
+                // Reset button
+                setTimeout(() => {
+                    btn.classList.remove('downloading');
+                    btn.innerHTML = '<i class="fab fa-whatsapp download-icon"></i> Chat on WhatsApp';
+                }, 2000);
+            }, 500);
+        }
+        
+        // Function to download the app
+        function downloadApp() {
+            // Replace with the actual path to your .apk file
+            const fileUrl = 'gyanloop.apk';
+            const fileName = 'gyanloop.apk';
+            
+            // Add animation to button
+            const btn = document.querySelector('.app-download-btn');
+            btn.classList.add('downloading');
+            btn.innerHTML = '<i class="fas fa-download download-icon"></i> Downloading...';
+            
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = fileName;
+            
+            // Small delay to allow animation to be seen
+            setTimeout(() => {
+                // Trigger the download
+                document.body.appendChild(link);
+                link.click();
+                
+                // Clean up
+                document.body.removeChild(link);
+                
+                // Reset button
+                setTimeout(() => {
+                    btn.classList.remove('downloading');
+                    btn.innerHTML = '<i class="fas fa-download download-icon"></i> Download Gyanloop App';
+                }, 2000);
+            }, 500);
+        }
+        
+        // Add hover effect to screenshots
+        document.querySelectorAll('.screenshot').forEach(img => {
+            img.addEventListener('mouseover', () => {
+                img.style.transform = 'scale(1.03)';
+                img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.4)';
+            });
+            img.addEventListener('mouseout', () => {
+                img.style.transform = 'scale(1)';
+                img.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+            });
+            
+            // Click to enlarge (simplified)
+            img.addEventListener('click', () => {
+                img.classList.toggle('enlarged');
+            });
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        
+        // Add floating animation to features
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
