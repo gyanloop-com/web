@@ -10,16 +10,39 @@
         /* Base Styles */
         :root {
             --primary: #ffff00; /* Bright yellow */
-    --secondary: #ffffff; /* White */
-    --accent: #ffff00; /* Yellow as accent */
-    --dark: #000000; /* Black */
-    --darker: #000000; /* Even darker black */
-    --light: #ffffff; /* White */
-    --lighter: #ffffff; /* White */
-    --gray: #1a1a1a; /* Dark gray for subtle contrast */
+            --secondary: #ffffff; /* White */
+            --accent: #ffff00; /* Yellow as accent */
+            --dark: #000000; /* Black */
+            --darker: #000000; /* Even darker black */
+            --light: #ffffff; /* White */
+            --lighter: #ffffff; /* White */
+            --gray: #1a1a1a; /* Dark gray for subtle contrast */
+        }
+        
+        /* Add this new style for the video container */
+        .video-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
         
         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tiro Bangla', 'Inter', sans-serif;
+        }
+         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -1035,7 +1058,59 @@ p {
     cursor: grabbing;
     transform: scale(1.05);
 }
+.download-section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: auto;
+    }
 
+    .download-section h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .download-section p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .download-buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .download-buttons a i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+
+    .download-buttons a:hover {
+      background-color: #218838;
+    }
+
+    /* Optional: iOS button style */
+    .ios-btn {
+      background-color: #007aff;
+    }
+
+    .ios-btn:hover {
+      background-color: #005ecb;
+    }
+        
+        /* Rest of your existing styles... */
+        /* ... (all your existing CSS remains the same) ... */
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -1045,7 +1120,12 @@ p {
 <a href="https://wa.me/9474165029" class="floating-btn" id="draggableBtn" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- YouTube Video Container - Added above hero section -->
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/frcHEsq8JKc?autoplay=1&loop=1&playlist=frcHEsq8JKc&mute=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+
     <!-- Header -->
     <header id="header">
         <div class="logo">
@@ -1062,6 +1142,7 @@ p {
                 <li><a href="webapp.html">কোর্স</a></li>
                 <li><a href="#testimonials">পর্যালোচনা</a></li>
                 <li><a href="#cta-section">যোগাযোগ</a></li>
+                <li><a href="#download-section" class="cta-button">App Download </a></li>
                 <li><a href="webapp.html" class="cta-button">শুরু করুন</a></li>
             </ul>
         </nav>
@@ -1069,8 +1150,7 @@ p {
             <i class="fas fa-bars"></i>
         </div>
     </header>
-
-    <!-- Hero Section -->
+      <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1><span class="animated-text">শিক্ষার জগতে স্বাগতম</span></h1>
@@ -1155,7 +1235,7 @@ p {
     <section class="team" id="team">
         <div class="section-title">
             <h2>আমাদের প্রতিভাবান টিমের সাথে পরিচিত হোন</h2>
-            <p>জিনিয়াস নেস্টের পিছনে থাকা উত্সাহী শিক্ষাবিদ এবং উদ্ভাবকরা</p>
+            <p>Gyanloop এর পিছনে থাকা উত্সাহী শিক্ষাবিদ এবং উদ্ভাবকরা</p>
              <p>click someone to know more</p>
         </div>
         <div class="team-members-container">
@@ -1263,8 +1343,26 @@ p {
 
 </p>
         <a href="https://wa.me/9474165029" class="cta-button large">9474165029</a>
+         
     </section>
+  <section class="download-section" id="download-section"> 
+<div class="download-section">
+    <h2>Get the GyanLoop App</h2>
+    <p>Download our app for the best learning experience!</p>
 
+    <div class="download-buttons">
+      <!-- Android Button -->
+      <a href="https://www.gyanloop.com/appdownload" target="_blank">
+        <i class="fab fa-android"></i> Download for Android
+      </a>
+
+      <!-- iOS Button (optional) -->
+      <!-- <a href="#" class="ios-btn">
+        <i class="fab fa-apple"></i> Download for iOS
+      </a> -->
+    </div>
+  </div>
+ </section>
     <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
@@ -1272,11 +1370,11 @@ p {
                 <h3>Gyanloop</h3>
                 <p id="p3">যেখানে প্রতিভাবান মনেরা একসাথে শিখতে, পরীক্ষা করতে এবং উদ্ভাবন করতে আসে।</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="https://wa.me/9474165029"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="http://www.instagram.com/_gyanloop"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/199P5UkXhp/"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCZEEtoOg1UPlvTiAMf_wY8w"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.gyanloop.com/appdownload"><i class="fa-solid fa-download"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -1314,8 +1412,7 @@ p {
             <p id="p3">Copyright © 2025 Gyanloop All rights reserved.  <p/>
         </div>
     </footer>
-
-    <script>
+     <script>
          // Team data
         const teamMembers =[
             {
@@ -1579,5 +1676,9 @@ floatingBtn.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
     </script>
+
+    <!-- Rest of your HTML remains the same -->
+    <!-- ... (all your existing HTML remains the same) ... -->
+
 </body>
 </html>
