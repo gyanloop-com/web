@@ -9,145 +9,141 @@
     <style>
         /* Base Styles */
         :root {
-            --primary: #ffff00; /* Bright yellow */
-            --secondary: #ffffff; /* White */
-            --accent: #ffff00; /* Yellow as accent */
-            --dark: #000000; /* Black */
-            --darker: #000000; /* Even darker black */
-            --light: #ffffff; /* White */
-            --lighter: #ffffff; /* White */
-            --gray: #1a1a1a; /* Dark gray for subtle contrast */
-        }
-        
-        /* Add this new style for the video container */
-       .video-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        overflow: hidden;
-    }
+    --primary: #ffff00; /* Bright yellow */
+    --secondary: #ffffff; /* White */
+    --accent: #ffff00; /* Yellow as accent */
+    --dark: #000000; /* Black */
+    --darker: #000000; /* Even darker black */
+    --light: #ffffff; /* White */
+    --lighter: #ffffff; /* White */
+    --gray: #1a1a1a; /* Dark gray for subtle contrast */
+}
 
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tiro Bangla', 'Inter', sans-serif;
-        }
-         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tiro Bangla', 'Inter', sans-serif;
-        }
-        
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-        }
-        
-        /* Header & Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-            background-color: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        header.scrolled {
-            padding: 1rem 5%;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 2rem;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--light);
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        
-        nav ul li a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .cta-button {
-            background: #ffff00;
-            color: #000000;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tiro Bangla', 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--primary);
+    height: 80px; /* Fixed header height */
+}
+
+header.scrolled {
+    padding: 1rem 5%;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+}
+
+.logo-icon {
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background: #ffff00;
+    color: #000000;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+}
+
+/* Video Container (Updated as per request) */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-top: 80px; /* Space for fixed header (same as header height) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
         
         /* Hero Section */
         .hero {
