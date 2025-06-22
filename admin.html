@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #password-section {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3367d6;
+        }
+        #links-section {
+            display: none;
+        }
+        .link-item {
+            margin: 15px 0;
+        }
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="password-section">
+            <h2>Enter Password</h2>
+            <input type="password" id="password-input" placeholder="Password">
+            <button onclick="checkPassword()">Submit</button>
+            <div id="error"></div>
+        </div>
+        
+        <div id="links-section">
+            <h2>Secret Links</h2>
+            <div class="link-item">
+                <a href="https://google.com" target="_blank">Google Search Engine</a>
+            </div>
+            <div class="link-item">
+                <a href="https://youtube.com" target="_blank">YouTube Video Platform</a>
+            </div>
+            <div class="link-item">
+                <a href="https://descriptive-robe-0b9.notion.site/webapp-219b536ec59380cebc15d7e607e4d321" target="_blank">Notion Web Application</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password-input').value;
+            const errorElement = document.getElementById('error');
+            
+            if (password === '0000') {
+                document.getElementById('password-section').style.display = 'none';
+                document.getElementById('links-section').style.display = 'block';
+                errorElement.textContent = '';
+            } else {
+                errorElement.textContent = 'Incorrect password. Please try again.';
+            }
+        }
+        
+        // Allow pressing Enter to submit password
+        document.getElementById('password-input').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>
