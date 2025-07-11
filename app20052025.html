@@ -501,6 +501,45 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
+       /*cricular botten */ 
+        
+         .button-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px; /* space below buttons */
+    }
+
+    .circle-button {
+      flex: 1;
+      max-width: 100px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      /* border removed */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .circle-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .circle-button:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 480px) {
+      .circle-button {
+        max-width: 80px;
+      }
+    }
+        
 
         .search-bar input {
             width: 100%;
@@ -1151,6 +1190,23 @@
     <div class="main-content">
 <!-- Home Screen -->
 <div class="screen active" id="home-screen">
+
+<div class="button-row">
+    <a href="https://gyanloop-news.blogspot.com/" class="circle-button">
+      <img src="https://i.ibb.co/bg7FXPFJ/bh.png" alt="Button 1">
+    </a>
+    <a href="#" class="circle-button">
+      <img src="https://i.ibb.co/cS3MSjLt/c2.png" alt="Button 2">
+    </a>
+    <a href="#" class="circle-button">
+      <img src="https://i.ibb.co/bg7FXPFJ/bh.png" alt="Button 3">
+    </a>
+    <a href="#" class="circle-button">
+      <img src="https://i.ibb.co/bg7FXPFJ/bh.png" alt="Button 3">
+    </a>
+    
+  </div>
+
     <!-- Header Image at the top -->
     <div class="header-image-card section-gap">
         <div class="header-image">
@@ -1908,4 +1964,3 @@
     </script>
 </body>
 </html>
-
