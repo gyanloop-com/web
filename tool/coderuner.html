@@ -13,6 +13,7 @@
       margin: 0;
       height: 100%;
       font-family: sans-serif;
+      overflow: hidden;
     }
 
     header {
@@ -26,12 +27,7 @@
     .container {
       display: flex;
       height: calc(100% - 54px);
-      overflow: hidden;
-    }
-
-    .editor, .preview-container {
-      height: 100%;
-      padding: 10px;
+      width: 100%;
     }
 
     .editor {
@@ -39,9 +35,20 @@
       display: flex;
       flex-direction: column;
       background-color: #f8f8f8;
+      min-width: 200px;
     }
 
-    textarea {
+    .preview-container {
+      flex: 1;
+      min-width: 200px;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+    }
+
+    #codeInput {
       flex: 1;
       resize: none;
       padding: 10px;
@@ -49,12 +56,24 @@
       font-size: 14px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      background-color: white;
+      color: #333;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-y: auto;
+      outline: none;
+      margin: 10px;
+    }
+
+    .url {
+      color: #28a745;
+      text-decoration: underline;
     }
 
     .controls {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      margin: 0 10px 10px 10px;
       flex-wrap: wrap;
     }
 
@@ -67,19 +86,11 @@
       border-radius: 6px;
       cursor: pointer;
       font-size: 14px;
+      min-width: 100px;
     }
 
     .controls button:hover {
       background-color: #0056b3;
-    }
-
-    .preview-container {
-      flex: 1;
-      background-color: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: auto;
     }
 
     .preview-box {
@@ -88,6 +99,9 @@
       border-radius: 6px;
       transition: width 0.3s, height 0.3s;
       overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 10px;
     }
 
     iframe {
@@ -97,9 +111,15 @@
     }
 
     #divider {
-      width: 5px;
+      width: 8px;
       cursor: col-resize;
-      background: #ccc;
+      background: #ddd;
+      position: relative;
+      z-index: 10;
+    }
+
+    #divider:hover {
+      background: #bbb;
     }
 
     .fullscreen {
@@ -114,13 +134,9 @@
       #divider {
         display: none;
       }
-      .editor {
+      .editor, .preview-container {
         width: 100% !important;
         height: 50%;
-      }
-      .preview-container {
-        height: 50%;
-        width: 100% !important;
       }
     }
   </style>
@@ -131,23 +147,24 @@
 
   <div class="container">
     <div class="editor" id="editorPane">
-      <textarea id="codeInput">
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
+      <div id="codeInput" contenteditable="true" spellcheck="false">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
     body { background: #fdf6e3; text-align: center; margin-top: 40px; }
     h1 { color: #268bd2; }
-  </style>
-</head>
-<body>
-  <h1>Hello World!</h1>
-  <script>
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello World!&lt;/h1&gt;
+  &lt;p&gt;Visit https://example.com or www.example.org&lt;/p&gt;
+  &lt;script&gt;
     alert("JS is working!");
-  </script>
-</body>
-</html>
-      </textarea>
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </div>
       <div class="controls">
         <button onclick="runCode()">▶ Run</button>
         <button onclick="setMode('mobile')">📱 Mobile</button>
@@ -160,15 +177,97 @@
     <div id="divider"></div>
 
     <div class="preview-container">
-      <div id="previewBox" class="preview-box" style="width: 375px; height: 667px;">
+      <div id="previewBox" class="preview-box">
         <iframe id="preview"></iframe>
       </div>
     </div>
   </div>
 
   <script>
+    // Save cursor position before updating content
+    function saveCursorPosition(element) {
+      const selection = window.getSelection();
+      if (selection.rangeCount === 0) return null;
+      
+      const range = selection.getRangeAt(0);
+      const preSelectionRange = range.cloneRange();
+      preSelectionRange.selectNodeContents(element);
+      preSelectionRange.setEnd(range.startContainer, range.startOffset);
+      const start = preSelectionRange.toString().length;
+      
+      return {
+        start: start,
+        end: start + range.toString().length
+      };
+    }
+
+    // Restore cursor position after updating content
+    function restoreCursorPosition(element, pos) {
+      if (!pos) return;
+      
+      const selection = window.getSelection();
+      const range = document.createRange();
+      
+      let charIndex = 0;
+      const nodeStack = [element];
+      let node;
+      let foundStart = false;
+      let stop = false;
+      
+      while (!stop && (node = nodeStack.pop())) {
+        if (node.nodeType === 3) {
+          const nextCharIndex = charIndex + node.length;
+          if (!foundStart && pos.start >= charIndex && pos.start <= nextCharIndex) {
+            range.setStart(node, pos.start - charIndex);
+            foundStart = true;
+          }
+          if (foundStart && pos.end >= charIndex && pos.end <= nextCharIndex) {
+            range.setEnd(node, pos.end - charIndex);
+            stop = true;
+          }
+          charIndex = nextCharIndex;
+        } else {
+          let i = node.childNodes.length;
+          while (i--) {
+            nodeStack.push(node.childNodes[i]);
+          }
+        }
+      }
+      
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+
+    // Color URLs in the editor
+    function colorURLs(element) {
+      const cursorPos = saveCursorPosition(element);
+      const text = element.innerHTML;
+      
+      // Match URLs (http/https/www) but avoid matching inside HTML tags
+      const urlRegex = /(https?:\/\/[^\s"<]+|www\.[^\s"<]+)/gi;
+      const newText = text.replace(urlRegex, '<span class="url">$&</span>');
+      
+      if (newText !== text) {
+        element.innerHTML = newText;
+        restoreCursorPosition(element, cursorPos);
+      }
+    }
+
+    // Initialize the editor
+    function initEditor() {
+      const codeInput = document.getElementById('codeInput');
+      
+      // Color URLs when content changes
+      codeInput.addEventListener('input', function() {
+        colorURLs(this);
+      });
+      
+      // Initial coloring
+      colorURLs(codeInput);
+    }
+
     function runCode() {
-      const code = document.getElementById("codeInput").value;
+      const code = document.getElementById("codeInput").textContent;
       document.getElementById("preview").srcdoc = code;
     }
 
@@ -193,31 +292,53 @@
       box.classList.toggle("fullscreen");
     }
 
-    // Enable draggable divider
+    // Improved draggable divider
     const divider = document.getElementById("divider");
     const editorPane = document.getElementById("editorPane");
-
+    const previewPane = document.querySelector(".preview-container");
     let isDragging = false;
 
     divider.addEventListener("mousedown", function(e) {
       isDragging = true;
       document.body.style.cursor = "col-resize";
+      document.body.style.userSelect = "none";
+      e.preventDefault();
     });
 
-    window.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function(e) {
       if (!isDragging) return;
-      const percent = (e.clientX / window.innerWidth) * 100;
-      editorPane.style.width = percent + "%";
+      
+      const containerWidth = document.querySelector('.container').offsetWidth;
+      const mouseX = e.clientX;
+      const editorWidth = (mouseX / containerWidth) * 100;
+      
+      // Set minimum widths
+      const minWidth = 10; // 10% of container
+      const maxWidth = 90; // 90% of container
+      
+      if (editorWidth >= minWidth && editorWidth <= maxWidth) {
+        editorPane.style.width = editorWidth + "%";
+        previewPane.style.width = (100 - editorWidth) + "%";
+      }
     });
 
-    window.addEventListener("mouseup", function() {
-      isDragging = false;
-      document.body.style.cursor = "default";
+    document.addEventListener("mouseup", function() {
+      if (isDragging) {
+        isDragging = false;
+        document.body.style.cursor = "default";
+        document.body.style.userSelect = "";
+      }
     });
 
-    // Initial render
-    window.onload = runCode;
+    // Initialize on load
+    window.onload = function() {
+      initEditor();
+      runCode();
+      
+      // Set initial sizes
+      editorPane.style.width = "50%";
+      previewPane.style.width = "50%";
+    };
   </script>
-
 </body>
 </html>
