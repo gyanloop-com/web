@@ -126,25 +126,7 @@ nav ul li a:hover::after {
     background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
 }
 
-/* Video Container (Updated as per request) */
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    margin-top: 80px; /* Space for fixed header (same as header height) */
-}
 
-.video-container iframe {
-    pointer-events: none; /* Fully disables any click/interact */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
         
         /* Hero Section */
         .hero {
@@ -1057,56 +1039,102 @@ p {
     transform: scale(1.05);
 }
 .download-section {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 500px;
-      margin: auto;
+  width: 100%;
+  background: linear-gradient(135deg, #000, #fff, #fdd835); /* black-white-yellow gradient */
+  padding: 40px 20px;
+  border-radius: 0; /* Full width = no rounded corners needed */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4); /* subtle inner shadow */
+  text-align: center;
+}
+
+.download-section h2 {
+  margin-bottom: 10px;
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #fdd835;
+}
+
+.download-section p {
+  color: #111;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.download-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; /* black buttons */
+  color: #fdd835; /* yellow text */
+  text-decoration: none;
+  padding: 14px 24px;
+  margin: 10px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.download-buttons a i {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+.download-buttons a:hover {
+  background-color: #fdd835; /* yellow on hover */
+  color: #000; /* black text on hover */
+  transform: scale(1.05);
+}
+
+/* Optional: iOS button style */
+.ios-btn {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.ios-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+      
+/* g botten */
+  .button-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 100px; /* adjust top gap here */
     }
 
-    .download-section h2 {
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .download-section p {
-      color: #666;
-      margin-bottom: 20px;
-    }
-
-    .download-buttons a {
+    .google-review-btn {
+      background-color: #fbbc05;
+      color: #000;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      margin: 10px;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: background-color 0.3s;
+      gap: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      border: 2px solid #000;
     }
 
-    .download-buttons a i {
-      margin-right: 10px;
-      font-size: 20px;
+    .google-review-btn i {
+      font-size: 22px;
     }
 
-    .download-buttons a:hover {
-      background-color: #218838;
+    .google-review-btn:hover {
+      background-color: #000;
+      color: #fbbc05;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
 
-    /* Optional: iOS button style */
-    .ios-btn {
-      background-color: #007aff;
-    }
-
-    .ios-btn:hover {
-      background-color: #005ecb;
-    }
-        
+  
         /* Rest of your existing styles... */
         /* ... (all your existing CSS remains the same) ... */
     </style>
@@ -1119,16 +1147,6 @@ p {
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- YouTube Video Container - Added above hero section -->
-<div class="video-container">
-    <iframe 
-        src="https://www.youtube.com/embed/frcHEsq8JKc?autoplay=1&loop=1&playlist=frcHEsq8JKc&mute=1&controls=0&modestbranding=1&rel=0&disablekb=1" 
-        frameborder="0" 
-        allow="autoplay; encrypted-media" 
-        allowfullscreen 
-        tabindex="-1">
-    </iframe>
-</div>
 
     <!-- Header -->
     <header id="header">
@@ -1195,14 +1213,14 @@ p {
                      <i class="fa-solid fa-book-open">‌</i>
                 </div>
                 <h3>ডিজিটাল নোটবুক</h3>
-                <p>এই প্লাটফর্মের বিভিন্ন নোটগুলো কিউআর কোড যুক্ত, click করলে ভিডিও সলিউশন ওপেন হয়। এবং আরো বৈশিষ্ট্য যুক্ত</p>
+                <p>এই প্লাটফর্মের বিভিন্ন নোটগুলো কিউআর কোড যুক্ত, click করলে ভিডিও সলিউশন ওপেন হয়। এবং আরো বৈশিষ্ট্য যুক্ত</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fa-solid fa-clipboard">‌</i>
                 </div>
                  <h3>Morden Quiz system </h3>
-                <p>প্রত্যেকটা কুইজের শেষে প্রপার অ্যানালিসিস দেওয়া হয়। এবং টেস্টগুলো একচুয়াল ফরমেটে বানানোর চেষ্টা করা হয়েছে</p>
+                <p>প্রত্যেকটা কুইজের শেষে প্রপার অ্যানালিসিস দেওয়া হয়। এবং টেস্টগুলো একচুয়াল ফরমেটে বানানোর চেষ্টা করা হয়েছে</p>
            </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -1302,13 +1320,17 @@ p {
             <h2>Motivation Zoon</h2>
             <p>motivation is oxygen for survive in giveup situation </p>
         </div>
+ <a href="https://g.page/r/CRv3CEOEC_-aEBM/review" target="_blank" class="google-review-btn">
+    <i class="fab fa-google"></i> Leave a Google Review
+  </a>
         <div class="testimonial-slider">
+
             <div class="testimonial active">
                 <div class="testimonial-avatar">
                     <img src="https://i.ibb.co/0RcQJFDh/image.png" alt="Elon Musk">
                 </div>
                 <p class="testimonial-content">"People work better when they know what the goal is and why. It is important that people look forward to coming to work in the morning and enjoy working."</p>
-                <h4 class="testimonial-author">Elon Musk</h4>
+                <h4 class="testimonial-author">⭐⭐⭐⭐⭐</h4>
                 <p class="testimonial-role">.</p>
             </div>
             <div class="testimonial">
@@ -1327,12 +1349,17 @@ p {
                 <h4 class="testimonial-author">এ পি জে আবদুল কালাম</h4>
                 <p class="testimonial-role">.</p>
             </div>
+
             <div class="slider-controls">
                 <div class="slider-dot active" data-index="0"></div>
                 <div class="slider-dot" data-index="1"></div>
                 <div class="slider-dot" data-index="2"></div>
             </div>
+
+
+
         </div>
+
     </section>
 
     <!-- CTA Section -->
@@ -1353,6 +1380,7 @@ p {
 <div class="download-section">
     <h2>Get the GyanLoop App</h2>
     <p>Download our app for the best learning experience!</p>
+     <p>1,000+* strong! Our community is growing rapidly, with over a thousand downloads already.</p>
 
     <div class="download-buttons">
       <!-- Android Button -->
@@ -1423,7 +1451,7 @@ p {
                 name: "কুশল ভৌমিক ",
                 role: "(content manager)",
                 photo: "https://i.ibb.co/m5B9MMdH/image.png",
-                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
+                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
                 social: [
                     
                     {icon: "fas fa-envelope", url: "mailto:gyanloopkusal@gmail.com"}
@@ -1433,7 +1461,7 @@ p {
                 name: "প্রিয়দীপ ভৌমিক",
                 role: "(content manager)",
                 photo: "https://i.ibb.co/d4yfcdhT/image.png",
-                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
+                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
                 social: [
                      {icon: "fas fa-envelope", url: "mailto:priyadwipgyanloop@gmail.com"}
                 ]
@@ -1442,7 +1470,7 @@ p {
                 name: "সৌমিক দেবনাথ ",
                 role: "Founder",
                 photo: "https://i.ibb.co/ZnYcWq8/image.png",
-                bio: "আমি একজন physics educator, এই প্লাটফর্মের অধিকাংশ ফিজিক্স সম্পর্কিত বিষয়বস্তু আমার দ্বারা পরিচালিত। আমার সাথে যোগাযোগ করার জন্য নিচে দেওয়া বোতাম টি ক্লিক করুন",
+                bio: "আমি একজন physics educator, এই প্লাটফর্মের অধিকাংশ ফিজিক্স সম্পর্কিত বিষয়বস্তু আমার দ্বারা পরিচালিত। আমার সাথে যোগাযোগ করার জন্য নিচে দেওয়া বোতাম টি ক্লিক করুন",
                 social: [{icon: "fas fa-envelope", url: "mailto:Soumikgyanloop@gmail.com"}
                 ]
             },
@@ -1450,7 +1478,7 @@ p {
                 name: "সুমিত হালদার ",
                 role: "Founder",
                 photo: "https://i.ibb.co/t117T6M/32510181838.png",
-                bio: "আমি একজন Math educator, এই প্লাটফর্মের অধিকাংশ Math সম্পর্কিত বিষয়বস্তু আমার দ্বারা পরিচালিত। আমার সাথে যোগাযোগ করার জন্য নিচে দেওয়া বোতাম টি ক্লিক করুন।",
+                bio: "আমি একজন Math educator, এই প্লাটফর্মের অধিকাংশ Math সম্পর্কিত বিষয়বস্তু আমার দ্বারা পরিচালিত। আমার সাথে যোগাযোগ করার জন্য নিচে দেওয়া বোতাম টি ক্লিক করুন।",
                 social: [{icon: "fas fa-envelope", url: "mailto:sumit.gyanloop@gmail.com"}
                    
                 ]
@@ -1459,7 +1487,7 @@ p {
                 name: "বিষ্ণু হালদার ",
                 role: "(content manager)",
                 photo: "https://i.ibb.co/20rRjkMn/image.png",
-                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
+                bio: "আমি এই প্ল্যাটফর্মের একজন কনটেন্ট ম্যানেজার, এই প্লাটফর্মের বিভিন্ন নোট, কুইজ এবং ইত্যাদি আমার দ্বারা তৈরি। আমার সাথে যোগাযোগ করার জন্য নিচে যাওয়া বোতাম টি ক্লিক করুন",
                 social: [{icon: "fas fa-envelope", url: "mailto:bishnu.gyanloop@gmail.com"}
                    
                 ]
@@ -1679,6 +1707,9 @@ document.addEventListener('mouseup', () => {
 floatingBtn.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
+
+
+
     </script>
 
     <!-- Rest of your HTML remains the same -->
@@ -1686,3 +1717,4 @@ floatingBtn.addEventListener('dragstart', (e) => {
 
 </body>
 </html>
+      
