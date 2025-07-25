@@ -149,140 +149,7 @@
             z-index: 10;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            position: relative;
-        }
-
-        .hero h1 .animated-text {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            padding: 0 5px;
-        }
-
-        .hero h1 .animated-text::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: highlighter 2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
-            border-radius: 4px;
-            opacity: 0.5;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            color: var(--light);
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .secondary-button {
-            background: transparent;
-            color: var(--secondary);
-            border: 2px solid var(--secondary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .secondary-button:hover {
-            background: rgba(0, 212, 255, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .math-animation {
-            width: 500px;
-            height: 500px;
-            position: relative;
-        }
-
-        .atom {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-        }
-
-        .nucleus {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 30px;
-            height: 30px;
-            background: var(--accent);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px var(--accent);
-        }
-
-        .electron {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--secondary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--secondary);
-        }
-
-        .electron-path {
-            position: absolute;
-            border: 1px dashed rgba(233, 255, 9, 0.3);
-            border-radius: 50%;
-        }
-
-        .equation {
-            position: absolute;
-            color: var(--light);
-            font-size: 1.2rem;
-            font-family: 'Courier New', monospace;
-            opacity: 0.7;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .fractal {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 50%, var(--primary) 100%);
-            opacity: 0.1;
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite alternate;
-        }
-
+       
         /* Features Section */
         .features {
             padding: 5rem 5%;
@@ -443,116 +310,7 @@
             margin-top: 0.3rem;
         }
 
-        /* Popup Styles */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .popup-content {
-            background: var(--gray);
-            border-radius: 15px;
-            width: 90%;
-            max-width: 600px;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--primary);
-            transform: scale(0.9);
-            transition: all 0.3s;
-        }
-
-        .popup-overlay.active .popup-content {
-            transform: scale(1);
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .popup-close:hover {
-            color: var(--secondary);
-        }
-
-        .popup-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .popup-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            margin-right: 1.5rem;
-        }
-
-        .popup-info h3 {
-            font-size: 1.5rem;
-            color: var(--lighter);
-            margin-bottom: 0.3rem;
-        }
-
-        .popup-info .member-role {
-            font-size: 1rem;
-        }
-
-        .popup-bio {
-            color: var(--light);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .popup-social {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .popup-social a {
-            color: var(--light);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(138, 43, 226, 0.1);
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .popup-social a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
+        
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -560,48 +318,7 @@
                 gap: 2rem;
             }
             
-            .team-member {
-                width: 120px;
-            }
             
-            .member-photo {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .popup-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .popup-photo {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .team-members-container {
-                gap: 1.5rem;
-            }
-            
-            .team-member {
-                width: 100px;
-            }
-            
-            .member-photo {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .member-name {
-                font-size: 1rem;
-            }
-            
-            .member-role {
-                font-size: 0.8rem;
-            }
-        }
 
         /* Testimonials */
         .testimonials {
@@ -686,48 +403,7 @@
             box-shadow: 0 0 10px var(--secondary);
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="white" stroke-width="0.5" stroke-dasharray="5,5" opacity="0.1"/></svg>');
-            opacity: 0.2;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .cta-button.large {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-        }
-
+        
         /* Study Portal Sections */
         .subjects-section {
             padding: 5rem 5%;
@@ -774,106 +450,7 @@
             line-height: 1.6;
         }
 
-        /* Resources Section */
-        .resources-section {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
-        }
-
-        .resource-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            padding: 0.8rem 1.5rem;
-            background: transparent;
-            border: none;
-            color: var(--light);
-            font-size: 1rem;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s;
-            margin: 0.5rem;
-        }
-
-        .tab-button.active {
-            color: var(--primary);
-        }
-
-        .tab-button::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        .tab-button.active::after {
-            width: 100%;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .resource-card {
-            background: var(--gray);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.2);
-        }
-
-        .resource-image {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .resource-info {
-            padding: 1.5rem;
-        }
-
-        .resource-info h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .resource-info p {
-            color: var(--light);
-            opacity: 0.8;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .resource-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--secondary);
-            font-size: 0.8rem;
-        }
+       
 
         /* Download Section */
         .download-section {
@@ -926,39 +503,7 @@
             transform: scale(1.05);
         }
 
-        /* Google Review Button */
-        .button-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 100px; /* adjust top gap here */
-        }
-
-        .google-review-btn {
-            background-color: #fbbc05;
-            color: #000;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            border: 2px solid #000;
-        }
-
-        .google-review-btn i {
-            font-size: 22px;
-        }
-
-        .google-review-btn:hover {
-            background-color: #000;
-            color: #fbbc05;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
+        
 
         /* Footer */
         footer {
@@ -1086,97 +631,7 @@
             transform: scale(1.05);
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes electron-orbit {
-            0% {
-                transform: rotate(0deg) translateX(150px) rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg) translateX(150px) rotate(-360deg);
-            }
-        }
-
-        @keyframes electron-orbit-2 {
-            0% {
-                transform: rotate(120deg) translateX(120px) rotate(-120deg);
-            }
-            100% {
-                transform: rotate(480deg) translateX(120px) rotate(-480deg);
-            }
-        }
-
-        @keyframes electron-orbit-3 {
-            0% {
-                transform: rotate(240deg) translateX(180px) rotate(-240deg);
-            }
-            100% {
-                transform: rotate(600deg) translateX(180px) rotate(-600deg);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0.2;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes equation-float {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(10px, -10px) rotate(2deg);
-            }
-            50% {
-                transform: translate(-5px, 5px) rotate(-1deg);
-            }
-            75% {
-                transform: translate(5px, -5px) rotate(1deg);
-            }
-        }
-
-        @keyframes highlighter {
-            0% {
-                transform: scaleX(0);
-                transform-origin: left;
-            }
-            50% {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
-            51% {
-                transform-origin: right;
-            }
-            100% {
-                transform: scaleX(0);
-                transform-origin: right;
-            }
-        }
+       
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -1365,14 +820,14 @@
         <nav id="nav">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#subjects">Subjects</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#subjects">TRY </a></li>
+                <li><a href="#resources">Features</a></li>
+               
+                <li><a href="#testimonials">motivation</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <a href="#download" class="cta-button">Download App</a>
+        <a href="https://www.gyanloop.com/appdownload" class="cta-button">Download App</a>
     </header>
 
     <!-- Hero Section -->
@@ -1384,12 +839,12 @@
             
             <!-- Image Button that redirects to gyanloop.com -->
             <div class="image-btn-container">
-                <a href="https://meet.google.com/sgs-oous-dst" target="_blank">
+                <a href="https://www.gyanloop.com/learn" target="_blank">
                     <img src="https://i.ibb.co/xtTfsP85/as.png" alt="Join Live Class" class="image-btn">
                 </a>
             </div>
              <div class="image-btn-container">
-                <a href="https://gyanloop1.github.io/web/mathx/allchapter" target="_blank">
+                <a href="https://wa.me/9474165029" target="_blank">
                     <img src="https://i.ibb.co/VcHpRkcT/as.png" alt="Join Live Class" class="image-btn">
                 </a>
             </div>
@@ -1400,19 +855,19 @@
     <!-- Subjects Section -->
     <section class="subjects-section" id="subjects">
          <!-- Exam Categories -->
-           <h3 class="section-title">try app exclusive fetures </h3>
+           <h3 class="section-title">Try app exclusive features </h3>
             <div class="category-grid">
-                 <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/learning/up', '_blank')">
-                    <img src="https://i.ibb.co/ZzvzjyG1/1.png"  alt="class10" class="category-icon">
+                 <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/quiz', '_blank')">
+                    <img src="https://i.ibb.co/C3Lb42VP/dft.png"  alt="class10" class="category-icon">
                 </div>
-                <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/learning/sp', '_blank')">
-                    <img src="https://i.ibb.co/dYpKm0N/1.png" alt="GOV" class="category-icon">
+                <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/map', '_blank')">
+                    <img src="https://i.ibb.co/1tyndJyy/SSDF.png" alt="GOV" class="category-icon">
                 </div>
-                <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/learning/pro', '_blank')">
-                    <img src="https://i.ibb.co/S74WbfRQ/1.png" alt="12" class="category-icon">
+                <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/flashcard', '_blank')">
+                    <img src="https://i.ibb.co/zH8nb2Ss/SGHA.png" alt="12" class="category-icon">
                 </div> 
-                 <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/learning/ac', '_blank')">
-                    <img src="https://i.ibb.co/fV2jKC4n/1.png" alt="class9" class="category-icon">
+                 <div class="category-card" onclick="window.open('', '_blank')">
+                    <img src="https://i.ibb.co/xSzrv3Pt/SDFT.png" alt="class9" class="category-icon">
                 </div>
             </div>
         </div>
@@ -1424,17 +879,17 @@
     
 <section class="resources-section" id="resources">
 
- <!-- Image Button that redirects to gyanloop.com -->
-            <div class="image-btn-container">
-                <a href="https://meet.google.com/sgs-oous-dst" target="_blank">
-                    <img src="https://i.ibb.co/fVP95vsR/i.png" alt="Join Live Class" class="image-btn">
-                </a>
-            </div>
-             <div class="image-btn-container">
-                <a href="https://gyanloop1.github.io/web/mathx/allchapter" target="_blank">
-                    <img src="https://i.ibb.co/BHwN3xtT/i.png" alt="Join Live Class" class="image-btn">
-                </a>
-            </div>
+ <!-- New Promo Image Before Exam Categories -->
+    <div class="promo-image-card section-gap">
+        <img src="https://i.ibb.co/fYv2yCch/image.png" alt="Exam Preparation Banner" class="promo-image">
+    </div>
+ <div class="promo-image-card section-gap">
+        <img src="https://i.ibb.co/zW7JHkFM/image.png" alt="Exam Preparation Banner" class="promo-image">
+    </div>
+
+<div class="promo-image-card section-gap">
+        <img src="https://i.ibb.co/Yr3JXV2/something-is-loading.jpg" alt="Exam Preparation Banner" class="promo-image">
+    </div>
 
     </section>
 
@@ -1446,8 +901,12 @@
         
  <!-- New Promo Image Before Exam Categories -->
     <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/qLFQ3HQF/image.png" alt="Exam Preparation Banner" class="promo-image">
+        <img src="https://i.ibb.co/twGchSs6/image.png" alt="Exam Preparation Banner" class="promo-image">
     </div>
+ <div class="promo-image-card section-gap">
+        <img src="https://i.ibb.co/RTRx1Ldz/image.png" alt="Exam Preparation Banner" class="promo-image">
+    </div>
+
 
     </section>
 
@@ -1456,8 +915,8 @@
         <h2>Download Our App</h2>
         <p>Access all our learning resources on the go with the Gyanloop mobile app</p>
         <div class="download-buttons">
-            <a href="#">
-                <i class="fab fa-google-play"></i> Google Play
+            <a href="https://www.gyanloop.com/appdownload">
+                <i class="fab fa-google-play"></i> Download our app
             </a>
             
         </div>
