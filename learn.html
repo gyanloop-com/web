@@ -3,55 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Portal - GyanLoop</title>
-    <link rel="icon" type="image/png" href="https://i.ibb.co/QFTz1tJ5/image.png">
+    <title>GyanLoop - Dark Theme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
+        :root {
+            --primary: #6c63ff;
+            --primary-dark: #564fcc;
+            --secondary: #4a42e8;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --dark-light: #1e1e1e;
+            --text: #e0e0e0;
+            --text-light: #aaaaaa;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #0f0c1d;
-            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
             line-height: 1.6;
         }
         
-        /* Animated Top Navigation */
-        .topnav {
-            background: linear-gradient(135deg, #5a2b8a, #3a1c5e);
-            padding: 1rem 2rem;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Fixed Dark Navigation */
+        header {
+            background: var(--darker);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .topnav.hide {
-            transform: translateY(-100%);
+            padding: 15px 0;
         }
         
         .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         
         .logo img {
             height: 40px;
-            margin-right: 10px;
+            margin-right: 12px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
         }
         
         .nav-links {
@@ -60,680 +86,410 @@
         }
         
         .nav-links li {
-            margin-left: 2rem;
+            margin-left: 25px;
+            position: relative;
         }
         
         .nav-links a {
-            color: white;
             text-decoration: none;
+            color: var(--text-light);
             font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
+            transition: all 0.3s;
+            font-size: 15px;
+            letter-spacing: 0.5px;
         }
         
         .nav-links a:hover {
-            color: #d1b3ff;
+            color: var(--primary);
+            text-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
         }
         
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background-color: #b388ff;
-            transition: width 0.3s ease;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s;
         }
         
         .nav-links a:hover::after {
             width: 100%;
         }
         
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            position: relative;
+            overflow: hidden;
         }
         
-        .hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: white;
-            border-radius: 3px;
-            transition: all 0.3s ease;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
         }
         
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
-        /* Main Content Sections */
-        .section {
-            padding: 6rem 2rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 100vh;
-            display: none;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #d1b3ff;
-        }
-        
-        h2 {
-            font-size: 2rem;
-            margin: 2rem 0 1rem;
-            color: #b388ff;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: #d1d1d1;
-        }
-        
-        .course-card, .material-card, .test-card {
-            background: #1e1835;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #7c4dff;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .course-thumbnail {
-            width: 150px;
-            height: 100px;
-            border-radius: 8px;
-            object-fit: cover;
-            margin-right: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        
-        .course-content {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .course-card:hover, .material-card:hover, .test-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-        
-        .course-card h3, .material-card h3, .test-card h3 {
-            color: #b388ff;
-            margin-bottom: 0.5rem;
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
         
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #7c4dff, #5a2b8a);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            margin-top: 0.5rem;
-            font-weight: 500;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(124, 77, 255, 0.4);
-        }
-        
-        .btn-members {
-            background: linear-gradient(135deg, #ff6b6b, #c73e3e);
-        }
-        
-        .btn-members:hover {
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-        }
-        
-        .contact-form {
-            background: #1e1835;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #b388ff;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: #2a2346;
-            border: 1px solid #3a2d5e;
-            border-radius: 5px;
-            font-size: 1rem;
-            color: #e0e0e0;
-        }
-        
-        textarea {
-            min-height: 150px;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #7c4dff;
-        }
-        
-        /* QR Code Section */
-        .qr-section {
-            background: #1e1835;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 3rem;
+            font-weight: 600;
+            transition: all 0.3s;
             text-align: center;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .qr-code {
-            width: 180px;
-            height: 180px;
-            margin: 1rem auto;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-        }
-        
-        /* Mobile Popup */
-        .mobile-popup {
-            position: fixed;
-            bottom: -300px;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+        .btn-primary {
+            background: var(--primary);
             color: white;
-            padding: 1.5rem;
-            border-radius: 20px 20px 0 0;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            transition: bottom 0.5s ease;
-            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(108, 99, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 100px 0;
+            background: var(--dark-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
             margin: 0 auto;
         }
         
-        .mobile-popup.show {
-            bottom: 0;
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
         }
         
-        .popup-header {
+        .course-card {
+            background: var(--darker);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+        
+        .course-img {
+            height: 160px;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.8), rgba(76, 66, 232, 0.8));
+            opacity: 0.8;
+        }
+        
+        .course-img span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .course-content p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .course-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 13px;
+            margin-bottom: 20px;
         }
         
-        .popup-header h3 {
-            font-size: 1.3rem;
-        }
-        
-        .close-popup {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        .popup-content {
-            margin-bottom: 1.5rem;
-        }
-        
-        .download-btn {
+        .course-btn {
             display: block;
-            background-color: white;
-            color: #4e54c8;
             text-align: center;
-            padding: 0.8rem;
-            border-radius: 50px;
+            padding: 10px;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(108, 99, 255, 0.2);
         }
         
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .course-btn:hover {
+            background: rgba(108, 99, 255, 0.2);
         }
         
-        /* Responsive Design */
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links li {
+            margin: 0 15px 10px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--text-light);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+            }
+            
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 70px);
-                background-color: #3a1c5e;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
+                display: none;
             }
             
-            .nav-links.active {
-                left: 0;
+            .hero {
+                padding: 150px 0 80px;
             }
             
-            .nav-links li {
-                margin: 1.5rem 0;
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .btn-outline {
                 margin-left: 0;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .section {
-                padding-top: 5rem;
-            }
-            
-            .course-card {
-                flex-direction: column;
-            }
-            
-            .course-thumbnail {
-                width: 100%;
-                height: 200px;
-                margin-right: 0;
-                margin-bottom: 1rem;
+                margin-top: 15px;
+                display: block;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Animated Top Navigation -->
-    <nav class="topnav">
-        <a href="#" class="logo" data-section="home">
-            <img src="https://i.ibb.co/QFTz1tJ5/image.png" alt="GyanLoop Logo">
-            GyanLoop
-        </a>
-        <ul class="nav-links">
-            <li><a href="#" data-section="home">Home</a></li>
-            <li><a href="#" data-section="courses">Courses</a></li>
-            <li><a href="#" data-section="materials">Study Materials</a></li>
-            <li><a href="#" data-section="tests">Tests</a></li>
-            <li><a href="#" data-section="contact">Contact</a></li>
-        </ul>
-        <button class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-    
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="content">
-            <h1>Welcome to GyanLoop Study Portal</h1>
-            <p>Access the best study materials, practice tests, and expert guidance to excel in your academic journey.</p>
-            <p>Our platform offers comprehensive resources for students of all levels, from school to competitive exams.</p>
-            <p>Join thousands of successful learners who have transformed their academic performance with our help.</p>
-            
-            <h2>Why Choose GyanLoop?</h2>
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Expert Educators" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-chalkboard-teacher"></i> Expert-Curated Content</h3>
-                    <p>Our study materials are created by subject matter experts with years of teaching experience.</p>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Performance Tracking" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-chart-line"></i> Performance Tracking</h3>
-                    <p>Monitor your progress with detailed analytics and personalized recommendations.</p>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Learning Community" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-users"></i> Vibrant Community</h3>
-                    <p>Join thousands of learners in our active community forums for peer support and collaborative learning.</p>
-                </div>
-            </div>
+    <!-- Fixed Dark Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
+                    <span class="logo-text">GyanLoop</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Math</a></li>
+                    <li><a href="#">Physics</a></li>
+                    <li><a href="#">Chemistry</a></li>
+                    <li><a href="#">Biology</a></li>
+                    <li><a href="#">Computer Science</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
+    
+    
     
     <!-- Courses Section -->
-    <section id="courses" class="section">
-        <div class="content">
-            <h1>Our Courses</h1>
-            <p>Browse our comprehensive course catalog designed to meet your learning needs at every level.</p>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mathematics Mastery" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-square-root-alt"></i> Mathematics Mastery</h3>
-                    <p>From basic arithmetic to advanced calculus, our math courses cover all levels with interactive problem-solving.</p>
-                    <p><strong>Duration:</strong> 3-6 months | <strong>Level:</strong> Beginner to Advanced</p>
-                    <a href="#" class="btn">Enroll Now</a>
-                    <a href="#" class="btn btn-members">Members Only Content</a>
-                </div>
+    <section class="courses">
+        <div class="container">
+            <div class="section-title animate__animated animate__fadeIn">
+                <h2>Featured Courses</h2>
+                <p>Start your learning journey with our most popular courses</p>
             </div>
             
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Science Simplified" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-atom"></i> Science Simplified</h3>
-                    <p>Physics, Chemistry, and Biology courses with practical experiments, 3D visualizations, and interactive simulations.</p>
-                    <p><strong>Duration:</strong> 4-8 months | <strong>Level:</strong> School & College</p>
-                    <a href="#" class="btn">Enroll Now</a>
-                    <a href="#" class="btn btn-members">Members Only Content</a>
+            <div class="course-grid">
+                <!-- Math Course -->
+                <div class="course-card animate__animated animate__fadeInUp">
+                    <div class="course-img" style="background: url('https://i.ibb.co/5gPX2Dc5/image.png') center/cover;">
+                        <span>free</span>
+                    </div>
+                    <div class="course-content">
+                        <h3>মাধ্যমিক math crash course</h3>
+                        <p>live class, recorded class , test and more </p>
+                        <div class="course-meta">
+                            <span>24 Lessons</span>
+                            <span>Free</span>
+                        </div>
+                        <a href="https://wa.me/9474165029?text= i want to join carsh course" class="course-btn">join now </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Language Learning" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-language"></i> Language Learning</h3>
-                    <p>English, Hindi, and regional language courses with speaking, writing, and comprehension modules.</p>
-                    <p><strong>Duration:</strong> 2-5 months | <strong>Level:</strong> All Levels</p>
-                    <a href="#" class="btn">Enroll Now</a>
-                    <a href="#" class="btn btn-members">Members Only Content</a>
+                
+                <!-- Physics Course -->
+                <div class="course-card animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="course-img" style="background: url('https://i.ibb.co/R46Twx0y/image.png') center/cover;">
+                        <span>Paid</span>
+                    </div>
+                    <div class="course-content">
+                        <h3>মাধ্যমিক math crash course Pro</h3>
+                        <p>Complete syllabus</p>
+                        <div class="course-meta">
+                            <span>full Lessons</span>
+                            <span>Premium</span>
+                        </div>
+                        <a href="https://rzp.io/rzp/iBcgjwl" class="course-btn">join @2999</a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Competitive Exam Prep" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-trophy"></i> Competitive Exam Prep</h3>
-                    <p>Targeted preparation for JEE, NEET, UPSC, CAT and other competitive examinations with mock tests and personalized coaching.</p>
-                    <p><strong>Duration:</strong> 6-12 months | <strong>Level:</strong> Advanced</p>
-                    <a href="#" class="btn">Enroll Now</a>
-                    <a href="#" class="btn btn-members">Members Only Content</a>
-                </div>
+                
+                
             </div>
         </div>
     </section>
     
-    <!-- Study Materials Section -->
-    <section id="materials" class="section">
-        <div class="content">
-            <h1>Study Materials</h1>
-            <p>Access high-quality study resources curated by our team of expert educators.</p>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="PDF Notes" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-file-pdf"></i> Comprehensive PDF Notes</h3>
-                    <p>Detailed chapter-wise notes with diagrams, examples, and key points highlighted for quick revision.</p>
-                    <a href="#" class="btn">Download All Notes</a>
-                    <a href="#" class="btn btn-members">Premium Notes</a>
-                </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
             </div>
             
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Video Lectures" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-video"></i> HD Video Lectures</h3>
-                    <p>Recorded lectures by top educators covering all topics with clear explanations and visual demonstrations.</p>
-                    <a href="#" class="btn">Access Videos</a>
-                    <a href="#" class="btn btn-members">Premium Videos</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Question Banks" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-question-circle"></i> Extensive Question Banks</h3>
-                    <p>Chapter-wise practice questions with varying difficulty levels and detailed step-by-step solutions.</p>
-                    <a href="#" class="btn">Practice Now</a>
-                    <a href="#" class="btn btn-members">Advanced Questions</a>
-                </div>
-            </div>
+            <p class="copyright">© 2025-26 GyanLoop. All rights reserved.</p>
         </div>
-    </section>
-    
-    <!-- Tests Section -->
-    <section id="tests" class="section">
-        <div class="content">
-            <h1>Practice Tests</h1>
-            <p>Evaluate your preparation with our comprehensive test series and get detailed performance analysis.</p>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Chapter Tests" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-clock"></i> Chapter-wise Tests</h3>
-                    <p>Short tests after each chapter to reinforce concepts and identify weak areas needing improvement.</p>
-                    <p><strong>Duration:</strong> 30 mins | <strong>Questions:</strong> 25</p>
-                    <a href="#" class="btn">Start Test</a>
-                    <a href="#" class="btn btn-members">Advanced Tests</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Monthly Assessments" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-calendar-alt"></i> Monthly Assessments</h3>
-                    <p>Comprehensive tests covering all topics studied during the month with detailed performance reports.</p>
-                    <p><strong>Duration:</strong> 2 hours | <strong>Questions:</strong> 60</p>
-                    <a href="#" class="btn">Start Test</a>
-                    <a href="#" class="btn btn-members">Detailed Analytics</a>
-                </div>
-            </div>
-            
-            <div class="course-card">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Mock Exams" class="course-thumbnail">
-                <div class="course-content">
-                    <h3><i class="fas fa-trophy"></i> Full Mock Exams</h3>
-                    <p>Simulated exams that replicate actual test conditions with timed sections and realistic difficulty.</p>
-                    <p><strong>Duration:</strong> 3 hours | <strong>Questions:</strong> 90</p>
-                    <a href="#" class="btn">Start Test</a>
-                    <a href="#" class="btn btn-members">Personalized Feedback</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="content">
-            <h1>Contact Us</h1>
-            <p>Have questions or feedback? We'd love to hear from you!</p>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-            
-            <div class="qr-section">
-                <h3>Download Our Mobile App</h3>
-                <p>Scan this QR code to download the GyanLoop app for a better learning experience</p>
-                <div class="qr-code">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.gyanloop.com/appdownload" alt="QR Code">
-                </div>
-                <p>or visit: <a href="https://www.gyanloop.com/appdownload" style="color: #b388ff;">www.gyanloop.com/appdownload</a></p>
-            </div>
-            
-            <div style="margin-top: 3rem; text-align: center;">
-                <h3>Other Ways to Reach Us</h3>
-                <p><i class="fas fa-envelope"></i> Email: support@gyanloop.com</p>
-                <p><i class="fas fa-phone"></i> Phone: +91 9876543210</p>
-                <p><i class="fas fa-map-marker-alt"></i> Address: 123 Education Street, Knowledge City, India</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Mobile Popup -->
-    <div class="mobile-popup">
-        <div class="popup-header">
-            <h3>Better Experience on Mobile App</h3>
-            <button class="close-popup">&times;</button>
-        </div>
-        <div class="popup-content">
-            <p>Download our mobile app for a smoother learning experience with offline access and personalized features.</p>
-        </div>
-        <a href="gyanloop.apk" class="download-btn" download>
-            Download GyanLoop App
-        </a>
-    </div>
+    </footer>
     
     <script>
-        // Navigation Animation and Mobile Menu
-        const topnav = document.querySelector('.topnav');
-        const navLinks = document.querySelector('.nav-links');
-        const hamburger = document.querySelector('.hamburger');
-        const sections = document.querySelectorAll('.section');
-        
-        // Hide navbar on scroll down, show on scroll up
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                topnav.classList.remove('hide');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !topnav.classList.contains('hide')) {
-                topnav.classList.add('hide');
-            } else if (currentScroll < lastScroll && topnav.classList.contains('hide')) {
-                topnav.classList.remove('hide');
-            }
-            lastScroll = currentScroll;
-        });
-        
-        // Mobile menu toggle
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-        
-        // Section switching
-        document.querySelectorAll('[data-section]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const sectionId = link.getAttribute('data-section');
-                
-                // Hide all sections
-                sections.forEach(section => {
-                    section.classList.remove('active');
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
-                
-                // Show selected section
-                document.getElementById(sectionId).classList.add('active');
-                
-                // Close mobile menu if open
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
             });
-        });
-        
-        // Mobile Popup
-        const mobilePopup = document.querySelector('.mobile-popup');
-        const closePopup = document.querySelector('.close-popup');
-        
-        // Show popup after delay and only on mobile
-        function checkMobileAndShowPopup() {
-            if (window.innerWidth <= 768) {
-                setTimeout(() => {
-                    mobilePopup.classList.add('show');
-                }, 3000);
-            }
-        }
-        
-        // Check on load
-        window.addEventListener('load', checkMobileAndShowPopup);
-        
-        // Check on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                mobilePopup.classList.remove('show');
-            } else if (!mobilePopup.classList.contains('show')) {
-                checkMobileAndShowPopup();
-            }
-        });
-        
-        // Close popup
-        closePopup.addEventListener('click', () => {
-            mobilePopup.classList.remove('show');
-        });
-        
-        // Close popup when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobilePopup.contains(e.target) && !e.target.classList.contains('download-btn')) {
-                mobilePopup.classList.remove('show');
-            }
-        });
-        
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            e.target.reset();
+            
+            // Add shadow to navbar on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.4)';
+                } else {
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+                }
+            });
         });
     </script>
 </body>
