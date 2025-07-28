@@ -27,7 +27,7 @@
         }
 
         body {
-            background-color: var(--dark);
+            background-color: #EBE4F0;
             color: var(--light);
             overflow-x: hidden;
         }
@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #55076a ,#040404, #55076a); /* Updated gradient */
+    background: linear-gradient(135deg, #76589b ,#28157f, #07031e); /* Updated gradient */
     color: white;
     text-align: center;
     box-shadow: 0 4px 20px rgba(58, 134, 255, 0.3);
@@ -112,52 +112,67 @@
             min-height: calc(100vh - 140px);
         }
 
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(180deg, #22022c, #000000);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+       /* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #C5BCCF, #AF84E0);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #888;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
+/* Navigation Item */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+}
 
-        .nav-item i {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            transition: all 0.3s ease;
-        }
+/* Wavy Hover Effect */
+.nav-item:hover {
+    transform: translateY(-3px) rotate(-1deg) scale(1.03);
+    background-color: rgba(255, 255, 255, 0.2); /* slight transparent hover */
+}
 
-        .nav-item.active {
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
+/* Icon Styling */
+.nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
 
-        .nav-item.active i {
-            text-shadow: 0 0 10px rgba(58, 134, 255, 0.5);
-        }
+/* Active (Selected) Item */
+.nav-item.active {
+    color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.1); /* transparent background for selected */
+    transform: translateY(-5px);
+}
+
+/* Active Icon Glowing */
+.nav-item.active i {
+    text-shadow: 0 0 10px rgba(58, 134, 255, 0.5);
+}
+
 
         /* Vertical Gap */
         .section-gap {
             margin-bottom: 30px;
         }
 
-              /* Header Image Section */
+               /* Header Image Section */
         .header-image-card {
             background: var(--gray);
             border-radius: 15px;
@@ -280,7 +295,7 @@
         .section-title {
             font-size: 1.2rem;
             margin: 30px 0 15px;
-            color: var(--lighter);
+            color: #000000;
             position: relative;
             padding-left: 15px;
         }
@@ -1075,7 +1090,7 @@
     border-radius: 15px;
     margin: 20px 0;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
     transition: all 0.3s ease;
 }
 
@@ -1104,14 +1119,14 @@
         }
 
         .category-card {
-            background: #121212;
+            background: #EBE4F0;
             border-radius: 12px;
             padding: 0;
             aspect-ratio: 1/1;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -1193,16 +1208,16 @@
 
 <div class="button-row">
     <a href="https://gyanloop-news.blogspot.com/" class="circle-button">
-      <img src="https://i.ibb.co/kgSR1Jbx/d2.png" alt="Button 1">
+      <img src="https://i.ibb.co/qFDqjzXH/cg.png" alt="Button 1">
     </a>
     <a href="https://www.playbook.com/s/sumit-haldar1/dANGCRxPpNBXqshqBZYGWaGQ" class="circle-button">
-      <img src="https://i.ibb.co/Kc42nwpQ/f1.png" alt="Button 2">
+      <img src="https://i.ibb.co/V0PLkRZf/nji.png" alt="Button 2">
     </a>
     <a href="https://drive.google.com/file/d/19YJMjbxmxYbPjbtmxih42NhBvb5XBA4I/view?usp=sharing" class="circle-button">
-      <img src="https://i.ibb.co/TB3zzWry/b2.png" alt="Button 1">
+      <img src="https://i.ibb.co/S7n4xJGx/cf.png" alt="Button 1">
     </a>
     <a href="https://wa.me/9474165029" class="circle-button">
-      <img src="https://i.ibb.co/mrLcwcjm/t6.png" alt="Button 2">
+      <img src="https://i.ibb.co/8DRdkNDS/df.png" alt="Button 2">
     </a>
     
     
@@ -1211,7 +1226,7 @@
     <!-- Header Image at the top -->
     <div class="header-image-card section-gap">
         <div class="header-image">
-            <img src="https://i.ibb.co/fdTGHq7c/13.png" alt="Learning Header Image">
+            <img src="https://i.ibb.co/nNTtxJNv/Untitled-design.png" alt="Learning Header Image">
         </div>
     </div>
 
@@ -1219,16 +1234,16 @@
            <h3 class="section-title">Exam Categories</h3>
             <div class="category-grid">
                  <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/class10/sublist', '_blank')">
-                    <img src="https://i.ibb.co/zVVKWKmz/w2.png" alt="class10" class="category-icon">
+                    <img src="https://i.ibb.co/bjy4HmVx/dcf.png" alt="class10" class="category-icon">
                 </div>
                 <div class="category-card" onclick="window.open('https://gyanloop1.github.io/web/gk/sublist', '_blank')">
-                    <img src="https://i.ibb.co/wF38nSPp/e2.png" alt="GOV" class="category-icon">
+                    <img src="https://i.ibb.co/BV7HBq95/cgy.png" alt="GOV" class="category-icon">
                 </div>
                 
             </div>
             <!-- New Promo Image Before Exam Categories -->
     <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/mCW70s7b/vy.jpg" alt="Exam Preparation Banner" class="promo-image">
+        <img src="https://i.ibb.co/hJ6mWnCH/cfg.png" alt="Exam Preparation Banner" class="promo-image">
     </div>
     
     <div class="button-row">
@@ -1524,10 +1539,9 @@
 
         // Header images for rotation
         const headerImages = [
-            "https://i.ibb.co/fdTGHq7c/13.png",
-            "https://i.ibb.co/wNsX5CVg/B3.png",
-            "https://i.ibb.co/xnHvfSJ/s4.png",
-            "https://i.ibb.co/n8DJPcfc/F5.png"
+            "https://i.ibb.co/nNTtxJNv/Untitled-design.png",
+            "https://i.ibb.co/Z1bprGVK/Untitled-design.png"
+            
             
         ];
 
@@ -1934,3 +1948,4 @@
     </script>
 </body>
 </html>
+      
