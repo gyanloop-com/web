@@ -1,106 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login Page</title>
+  <meta charset="UTF-8">
+  <title>Student Login</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #7b2cbf, #9d4edd);
+      font-family: "Segoe UI", sans-serif;
+      background: #000;
+      color: #fff;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      color: #fff;
+      margin: 0;
     }
-
     .login-box {
-      background: #2b2d42;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      width: 90%;
-      max-width: 400px;
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+      width: 320px;
       text-align: center;
     }
-
-    .login-box img {
-      width: 80px;
-      margin-bottom: 20px;
-    }
-
     .login-box h2 {
-      margin-bottom: 25px;
-      font-weight: 600;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 1px;
     }
-
-    .login-box input {
+    input {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 15px;
-      background: #7b2cbf;
-      border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #000;
       color: #fff;
-      font-weight: bold;
+      font-size: 15px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #fff;
+    }
+    button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
-
-    .login-box button:hover {
-      background: #5a189a;
+    button:hover {
+      background: #ccc;
     }
-
-    .register-btn {
-      margin-top: 15px;
-      background: #ef233c;
-    }
-
     .error {
-      color: #ff6b6b;
+      color: #ff5555;
+      font-size: 14px;
       margin-top: 10px;
-      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
   <div class="login-box">
-    <img src="https://i.postimg.cc/76CKBB8k/logo.png" alt="Logo">
-    <h2>Login to Continue</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
+    <h2>Student Login</h2>
+    <input type="text" id="studentId" placeholder="Student ID">
+    <input type="password" id="password" placeholder="Password">
     <button onclick="login()">Login</button>
-    <button class="register-btn" onclick="location.href='https://www.playbook.com'">Register</button>
-    <div class="error" id="error-msg"></div>
+    <p class="error" id="errorMsg"></p>
   </div>
 
   <script>
+    const students = {
+      "101": { password: "pass101", name: "Sumit Haldar", image: "https://i.ibb.co/TMyJMcQg/sumit2.png", link: "https://gyanloop.com" },
+      "102": { password: "pass102", name: "Riya Sen", image: "https://i.ibb.co/4wTXHCpb/gyanloop.png", link: "https://example.com" },
+      "103": { password: "pass103", name: "Amit Das", image: "https://i.ibb.co/7XyV6D8/sample.png", link: "https://github.com" }
+    };
+
     function login() {
-      const user = document.getElementById("username").value.trim();
+      const id = document.getElementById("studentId").value.trim();
       const pass = document.getElementById("password").value.trim();
-      const error = document.getElementById("error-msg");
+      const errorMsg = document.getElementById("errorMsg");
 
-      const validUsers = {
-        "user1": "111",
-        "user2": "222"
-      };
-
-      if (validUsers[user] === pass) {
-        window.location.href = "https://www.sumit2.online";
+      if (students[id] && students[id].password === pass) {
+        localStorage.setItem("loggedInStudent", id);
+        window.location.href = "dashboard.html";
       } else {
-        error.textContent = "Invalid username or password";
+        errorMsg.textContent = "Invalid Student ID or Password";
       }
     }
   </script>
 </body>
 </html>
+
+
+      
