@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gyanloop App Required</title>
+  <meta name="description" content="This feature is only available in the Gyanloop mobile app. Download the app to continue." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --card: #111827;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --brand: #22c55e; /* green */
+      --brand-2: #06b6d4; /* cyan */
+      --ring: 0 0 0 6px rgba(34,197,94,0.15);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background: radial-gradient(1200px 600px at 10% -20%, rgba(34,197,94,0.15), transparent),
+                         radial-gradient(900px 500px at 110% 0%, rgba(6,182,212,0.14), transparent),
+                         var(--bg);
+      display:grid; place-items:center; padding:24px;
+    }
+    .wrap{ width:100%; max-width:920px; }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,0.35);
+      overflow:hidden; position:relative;
+    }
+    .grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; }
+    @media (max-width: 860px){ .grid{ grid-template-columns: 1fr; } }
+
+    .hero{
+      padding:40px 36px 28px 36px;
+      background: radial-gradient(800px 400px at -10% 0%, rgba(34,197,94,0.08), transparent);
+    }
+    .eyebrow{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+    h1{ margin:.5rem 0 0; font-size: clamp(26px, 3.4vw, 42px); line-height:1.1; }
+    .sub{ color:var(--muted); margin:10px 0 0; font-size: clamp(14px, 1.6vw, 16px); }
+
+    .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 0; }
+    .btn{
+      appearance:none; border:none; outline:none; cursor:pointer;
+      border-radius:14px; padding:14px 18px; font-weight:600; font-size:15px;
+      display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+      color:#0b0f17; background:white; transition: transform .08s ease, box-shadow .2s ease;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn.primary{ background: linear-gradient(90deg, var(--brand), var(--brand-2)); color:white; }
+    .btn.secondary{ background:#111827; color:#e5e7eb; border:1px solid rgba(255,255,255,0.08); }
+    .btn.secondary:hover{ box-shadow: var(--ring); }
+
+    .features{
+      padding:26px 36px 34px 36px; border-top:1px solid rgba(255,255,255,0.06);
+      display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:16px;
+    }
+    @media (max-width: 860px){ .features{ grid-template-columns:1fr; } }
+
+    .feat{
+      background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06);
+      border-radius:16px; padding:16px; min-height:92px;
+    }
+    .feat b{ display:block; margin-bottom:6px; }
+    .muted{ color:var(--muted); }
+
+    .right{
+      border-left:1px solid rgba(255,255,255,0.06);
+      padding:32px; display:grid; align-content:center; gap:18px;
+      background: radial-gradient(900px 500px at 110% 0%, rgba(6,182,212,0.10), transparent);
+    }
+    @media (max-width: 860px){ .right{ border-left:none; border-top:1px solid rgba(255,255,255,0.06);} }
+
+    .qr{
+      width:160px; height:160px; border-radius:16px; overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08); background:#fff; display:inline-grid; place-items:center;
+    }
+    .helper{ font-size:12px; color:var(--muted); }
+    .sep{ height:1px; background:rgba(255,255,255,0.08); margin:10px 0; }
+
+    .foot{ padding:18px 24px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:12px; }
+    .foot a{ color:#c7d2fe; text-decoration:none }
+
+    /* Icons */
+    .i{ width:18px; height:18px; display:inline-block }
+    .i-download{ background: conic-gradient(from 90deg, #fff 0 25%, transparent 0 100%),
+                 linear-gradient(#fff,#fff) center/2px 8px no-repeat; mask: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\'/><polyline points=\'7 10 12 15 17 10\'/><line x1=\'12\' y1=\'15\' x2=\'12\' y2=\'3\'/></svg>') center/contain no-repeat; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="grid">
+        <!-- Left: message -->
+        <div>
+          <div class="hero">
+            <div class="eyebrow">Heads up</div>
+            <h1>This feature is only available in our <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Gyanloop App</span></h1>
+            <p class="sub">You're viewing this on the web. To continue, please use our mobile app.</p>
+
+            <div class="cta-row">
+              <a class="btn primary" id="downloadBtn" href="https://www.gyanloop.com/appdownload" rel="noopener"> 
+                <span class="i i-download" aria-hidden="true"></span>
+                Download the App
+              </a>
+              <button class="btn secondary" id="shareBtn" type="button">Share to my phone</button>
+              <button class="btn secondary" id="copyBtn" type="button">Copy download link</button>
+            </div>
+          </div>
+
+          <div class="features">
+            <div class="feat">
+              <b>Offline & faster</b>
+              <div class="muted">Works smoothly with offline access tailored for mobile.</div>
+            </div>
+            <div class="feat">
+              <b>Push updates</b>
+              <div class="muted">Get instant notifications and the latest content in-app.</div>
+            </div>
+            <div class="feat">
+              <b>Secure access</b>
+              <div class="muted">Certain tools require app-only security and permissions.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: QR + tips -->
+        <aside class="right">
+          <div>
+            <div class="muted" style="margin-bottom:10px">Scan to download</div>
+            <div class="qr">
+              <!-- Simple QR via public endpoint. Replace with self-hosted image if preferred. -->
+              <img alt="QR code to download Gyanloop app" width="160" height="160" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.gyanloop.com%2Fappdownload" />
+            </div>
+            <div class="helper" style="margin-top:10px">Open your camera, scan, and tap the link</div>
+          </div>
+
+          <div class="sep"></div>
+
+          <div class="helper">
+            On a phone already? Tap <b>Download the App</b> above. If sharing from desktop, use <b>Share to my phone</b> or copy the link.
+          </div>
+        </aside>
+      </div>
+
+      <div class="foot">
+        <div>© <span id="yr"></span> Gyanloop</div>
+        <div><a href="https://www.gyanloop.com" rel="noopener">gyanloop.com</a></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Fill year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const link = 'https://www.gyanloop.com/appdownload';
+
+    // Share API for easy sending to phone (where supported)
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', async () => {
+      try{
+        if(navigator.share){
+          await navigator.share({
+            title: 'Get the Gyanloop App',
+            text: 'This feature is available only in the app. Download it here:',
+            url: link
+          });
+        } else {
+          alert('Sharing is not supported in this browser. Use Copy link instead.');
+        }
+      }catch(e){ /* dismissed */ }
+    });
+
+    // Copy to clipboard
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(link);
+        copyBtn.textContent = 'Link copied ✓';
+        setTimeout(()=> copyBtn.textContent = 'Copy download link', 1800);
+      }catch(e){
+        prompt('Copy the link below:', link);
+      }
+    });
+
+    // Optional: If on mobile, gently nudge to open link
+    const ua = navigator.userAgent.toLowerCase();
+    const isMobile = /android|iphone|ipad|ipod/.test(ua);
+    if(isMobile){
+      document.getElementById('downloadBtn').setAttribute('rel','noopener noreferrer');
+    }
+  </script>
+</body>
+</html>
