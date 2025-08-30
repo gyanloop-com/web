@@ -1,496 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GyanLoop - Dark Theme</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6c63ff;
-            --primary-dark: #564fcc;
-            --secondary: #4a42e8;
-            --dark: #121212;
-            --darker: #0a0a0a;
-            --dark-light: #1e1e1e;
-            --text: #e0e0e0;
-            --text-light: #aaaaaa;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Fixed Dark Navigation */
-        header {
-            background: var(--darker);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            height: 40px;
-            margin-right: 12px;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
-        }
-        
-        .logo-text {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-            position: relative;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            transition: all 0.3s;
-            font-size: 15px;
-            letter-spacing: 0.5px;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--dark), var(--darker));
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-            animation: rotate 20s linear infinite;
-            z-index: 0;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero p {
-            font-size: 18px;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-align: center;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            margin-left: 15px;
-        }
-        
-        .btn-outline:hover {
-            background: rgba(108, 99, 255, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        /* Courses Section */
-        .courses {
-            padding: 100px 0;
-            background: var(--dark-light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: white;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .course-card {
-            background: var(--darker);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(108, 99, 255, 0.3);
-        }
-        
-        .course-img {
-            height: 160px;
-            background: var(--primary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .course-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.8), rgba(76, 66, 232, 0.8));
-            opacity: 0.8;
-        }
-        
-        .course-img span {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .course-content {
-            padding: 25px;
-        }
-        
-        .course-content h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .course-content p {
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        
-        .course-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-light);
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-        
-        .course-btn {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            background: rgba(108, 99, 255, 0.1);
-            color: var(--primary);
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid rgba(108, 99, 255, 0.2);
-        }
-        
-        .course-btn:hover {
-            background: rgba(108, 99, 255, 0.2);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--darker);
-            padding: 60px 0 30px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-logo {
-            margin-bottom: 30px;
-        }
-        
-        .footer-logo img {
-            height: 50px;
-            opacity: 0.8;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links li {
-            margin: 0 15px 10px;
-        }
-        
-        .footer-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 14px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .copyright {
-            color: var(--text-light);
-            font-size: 13px;
-            opacity: 0.7;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 150px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 15px;
-                display: block;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyanloop Courses</title>
+  <link rel="icon" href="https://i.ibb.co/4wTXHCpb/gyanloop.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header {
+      background: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #f8f8f8;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .course-card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-info {
+      padding: 20px;
+    }
+
+    .course-info h3 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #fff;
+    }
+
+    .course-info p {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .enroll-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #00b894;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .enroll-btn:hover {
+      background: #019874;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1f1f1f;
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-    <!-- Fixed Dark Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
-                    <span class="logo-text">GyanLoop</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#">Math</a></li>
-                    <li><a href="#">Physics</a></li>
-                    <li><a href="#">Chemistry</a></li>
-                    <li><a href="#">Biology</a></li>
-                    <li><a href="#">Computer Science</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header>
+    🚀 Gyanloop Courses
+  </header>
+
+  <div class="container">
+    <div class="course-card">
+      <img src="https://i.ibb.co/5gPX2Dc5/image.png" alt="Data Science">
+      <div class="course-info">
+        <h3>মাধ্যমিক math crash course</h3>
+        <p>live class, recorded class , test and more .</p>
+        <a href="https://wa.me/9474165029?text= i want to join carsh course" class="enroll-btn">Enroll Now it's free</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="https://i.ibb.co/R46Twx0y/image.png" alt="Web Development">
+      <div class="course-info">
+        <h3>মাধ্যমিক math crash course Pro</h3>
+        <p>Master Complete syllabus</p>
+        <a href="https://rzp.io/rzp/iBcgjwl" class="enroll-btn">Enroll Now @2999</a>
+      </div>
+    </div>
+
     
-    
-    
-    <!-- Courses Section -->
-    <section class="courses">
-        <div class="container">
-            <div class="section-title animate__animated animate__fadeIn">
-                <h2>Featured Courses</h2>
-                <p>Start your learning journey with our most popular courses</p>
-            </div>
-            
-            <div class="course-grid">
-                <!-- Math Course -->
-                <div class="course-card animate__animated animate__fadeInUp">
-                    <div class="course-img" style="background: url('https://i.ibb.co/5gPX2Dc5/image.png') center/cover;">
-                        <span>free</span>
-                    </div>
-                    <div class="course-content">
-                        <h3>মাধ্যমিক math crash course</h3>
-                        <p>live class, recorded class , test and more </p>
-                        <div class="course-meta">
-                            <span>24 Lessons</span>
-                            <span>Free</span>
-                        </div>
-                        <a href="https://wa.me/9474165029?text= i want to join carsh course" class="course-btn">join now </a>
-                    </div>
-                </div>
-                
-                <!-- Physics Course -->
-                <div class="course-card animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="course-img" style="background: url('https://i.ibb.co/R46Twx0y/image.png') center/cover;">
-                        <span>Paid</span>
-                    </div>
-                    <div class="course-content">
-                        <h3>মাধ্যমিক math crash course Pro</h3>
-                        <p>Complete syllabus</p>
-                        <div class="course-meta">
-                            <span>full Lessons</span>
-                            <span>Premium</span>
-                        </div>
-                        <a href="https://rzp.io/rzp/iBcgjwl" class="course-btn">join @2999</a>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
-            </div>
-            
-            <p class="copyright">© 2025-26 GyanLoop. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scrolling to all links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Add shadow to navbar on scroll
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 10) {
-                    header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.4)';
-                } else {
-                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-                }
-            });
-        });
-    </script>
+  </div>
+
+  <footer>
+    © 2025 Gyanloop. All rights reserved.
+  </footer>
 </body>
 </html>
