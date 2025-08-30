@@ -1,1121 +1,223 @@
-<i class="fab fa-google-play"></i> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gyanloop - Study Portal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Base Styles */
-        :root {
-            --primary: #ffff00; /* Bright yellow */
-            --secondary: #ffffff; /* White */
-            --accent: #ffff00; /* Yellow as accent */
-            --dark: #000000; /* Black */
-            --darker: #000000; /* Even darker black */
-            --light: #ffffff; /* White */
-            --lighter: #ffffff; /* White */
-            --gray: #1a1a1a; /* Dark gray for subtle contrast */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tiro Bangla', 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-            background-color: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary);
-            height: 80px; /* Fixed header height */
-        }
-
-        header.scrolled {
-            padding: 1rem 5%;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo-icon {
-            margin-right: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--light);
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary);
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background: #ffff00;
-            color: #000000;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.6);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-            background: radial-gradient(circle at 70% 30%, var(--darker) 0%, var(--dark) 70%);
-        }
-
-        .hero-content {
-            flex: 1;
-            z-index: 10;
-        }
-
-       
-        /* Features Section */
-        .features {
-            padding: 5rem 5%;
-            background: var(--darker);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--lighter);
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section-title p {
-            color: var(--light);
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, #090906, #37454f); /* Updated gradient */;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-            transition: height 0.3s;
-        }
-
-        .feature-card:hover::before {
-            height: 100%;
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #ffff00);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: #ffff00;
-            font-size: 1.5rem;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: #ffff00;
-        }
-
-        .feature-card p {
-            color: var(--light);
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-        
-        h4 {
-            color: black;
-            font-size: 20px; /* Adjust as needed */
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        p {
-            color: black;
-            font-size: 16px; /* Adjust as needed */
-            line-height: 1.5;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
-            text-align: center;
-        }
-
-        .team-members-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-            width: 150px;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
-            transition: all 0.3s;
-        }
-
-        .team-member:hover .member-photo {
-            border-color: var(--secondary);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-        }
-
-        .member-name {
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            color: var(--lighter);
-            font-weight: 600;
-        }
-
-        .member-role {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-        }
-
-        
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .team-members-container {
-                gap: 2rem;
-            }
-            
-            
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 5%;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
-        }
-
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial {
-            background: var(--gray);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            display: none;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-        }
-
-        .testimonial.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            overflow: hidden;
-            border: 3px solid var(--primary);
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
-        }
-
-        .testimonial-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            color: var(--light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: #ffff00;
-        }
-
-        .testimonial-role {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gray);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid var(--secondary);
-        }
-
-        .slider-dot.active {
-            background: var(--secondary);
-            transform: scale(1.2);
-            box-shadow: 0 0 10px var(--secondary);
-        }
-
-        
-        /* Study Portal Sections */
-        .subjects-section {
-            padding: 5rem 5%;
-            background: var(--darker);
-        }
-
-        .subject-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .subject-card {
-            background: linear-gradient(135deg, #090906, #37454f);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-            cursor: pointer;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-        }
-
-        .subject-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .subject-card h3 {
-            color: var(--light);
-            margin-bottom: 1rem;
-        }
-
-        .subject-card p {
-            color: var(--light);
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-       
-
-        /* Download Section */
-        .download-section {
-            width: 100%;
-            background: linear-gradient(135deg, #000, #fff, #fdd835); /* black-white-yellow gradient */
-            padding: 40px 20px;
-            border-radius: 0; /* Full width = no rounded corners needed */
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4); /* subtle inner shadow */
-            text-align: center;
-        }
-
-        .download-section h2 {
-            margin-bottom: 10px;
-            color: #000;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px #fdd835;
-        }
-
-        .download-section p {
-            color: #111;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-
-        .download-buttons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #000; /* black buttons */
-            color: #fdd835; /* yellow text */
-            text-decoration: none;
-            padding: 14px 24px;
-            margin: 10px;
-            border-radius: 12px;
-            font-size: 17px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        }
-
-        .download-buttons a i {
-            margin-right: 12px;
-            font-size: 20px;
-        }
-
-        .download-buttons a:hover {
-            background-color: #fdd835; /* yellow on hover */
-            color: #000; /* black text on hover */
-            transform: scale(1.05);
-        }
-
-        
-
-        /* Footer */
-        footer {
-            background: #212529;
-            color: white;
-            padding: 3rem 5%;
-            border-top: 1px solid rgba(138, 43, 226, 0.1);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            color: var(--lighter);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 2px;
-            background: var(--secondary);
-            bottom: -5px;
-            left: 0;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s;
-            opacity: 0.8;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-            opacity: 1;
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: #7e42a4;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--light);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        #p3 {
-            color: yellow;
-        }
-
-        /* Floating Action Button */
-        .floating-btn {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #0ef115, #37454f); /* Updated gradient */;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
-            z-index: 99;
-            cursor: grab;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-            user-select: none;
-            touch-action: none;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
-        }
-
-        .floating-btn:active {
-            cursor: grabbing;
-            transform: scale(1.05);
-        }
-
-       
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 100px;
-                height: auto;
-                min-height: 100vh;
-            }
-            
-            .hero-content {
-                margin-bottom: 3rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                margin: 0 auto 2rem;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .math-animation {
-                width: 350px;
-                height: 350px;
-                margin-bottom: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 5%;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 80%;
-                height: calc(100vh - 80px);
-                background: var(--darker);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
-                transition: left 0.3s;
-                border-right: 1px solid var(--primary);
-            }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 1rem 0;
-            }
-            
-            .menu-toggle {
-                display: block;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: var(--light);
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
- /* Image Button Styles */
-        .image-btn-container {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .image-btn {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .image-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
-            border-color: var(--primary-color);
-        }
-/* Exam Categories */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-
-        .category-card {
-            background: #121212;
-            border-radius: 12px;
-            padding: 0;
-            aspect-ratio: 1/1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: all 0.3s ease;
-        }
-
- /* Promo Image Styles */
-.promo-image-card {
-    background: #121212;
-    border-radius: 15px;
-    margin: 20px 0;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.promo-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.promo-image-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.promo-image-card:hover .promo-image {
-    transform: scale(1.02);
-}
-
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GyanLoop - Class 10</title>
+  <link rel="icon" href="https://i.ibb.co/jkpPLS84/ga.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1117; /* Dark theme */
+      color: #e6edf3;
+      padding: 10px;
+    }
+
+    /* ✅ Top Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #161b22;
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #30363d;
+      margin-bottom: 12px;
+      border-radius: 6px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+    .brand span {
+      font-weight: bold;
+      font-size: 16px;
+      color: #fff;
+    }
+    .login-btn {
+      background: #238636;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    .login-btn:hover {
+      background: #2ea043;
+    }
+
+    /* ✅ Banner Image */
+    .top-banner {
+      width: 100%;
+      max-width: 500px; /* Smaller on desktop */
+      height: auto;
+      margin: 0 auto 15px;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 0 20px rgba(255, 213, 74, 0.2);
+    }
+
+    /* ✅ Video Section */
+    .video-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .video-card {
+      display: flex;
+      background-color: #161b22;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .video-card:hover {
+      background-color: #1f2736;
+    }
+
+    .thumbnail {
+      width: 130px;
+      height: 80px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .video-details {
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .video-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .video-meta {
+      font-size: 13px;
+      color: #8b949e;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="logo">
-            <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="Gyanloop Logo">
-            Gyanloop
-        </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#subjects">TRY </a></li>
-                <li><a href="#resources">Features</a></li>
-               
-                <li><a href="#testimonials">motivation</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="https://www.gyanloop.com/appdownload" class="cta-button">Download App</a>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-         <!-- New Promo Image Before Exam Categories -->
-    <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/WY2sGFp/image.png" alt="Exam Preparation Banner" class="promo-image">
+  <!-- ✅ Top Nav -->
+  <header class="navbar">
+    <div class="brand">
+      <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop">
+      <span>GyanLoop</span>
     </div>
-            
-            <!-- Image Button that redirects to gyanloop.com -->
-            <div class="image-btn-container">
-                <a href="https://www.gyanloop.com/learn" target="_blank">
-                    <img src="https://i.ibb.co/xtTfsP85/as.png" alt="Join Live Class" class="image-btn">
-                </a>
-            </div>
-             <div class="image-btn-container">
-                <a href="https://wa.me/9474165029" target="_blank">
-                    <img src="https://i.ibb.co/VcHpRkcT/as.png" alt="Join Live Class" class="image-btn">
-                </a>
-            </div>
-            
-        </div>
-    </section>
+    <button class="login-btn">Login</button>
+  </header>
 
-    <!-- Subjects Section -->
-    <section class="subjects-section" id="subjects">
-         <!-- Exam Categories -->
-           <h3 class="section-title">Try app exclusive features </h3>
-            <div class="category-grid">
-                 <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/quiz', '_blank')">
-                    <img src="https://i.ibb.co/C3Lb42VP/dft.png"  alt="class10" class="category-icon">
-                </div>
-                <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/map', '_blank')">
-                    <img src="https://i.ibb.co/1tyndJyy/SSDF.png" alt="GOV" class="category-icon">
-                </div>
-                <div class="category-card" onclick="window.open('https://www.gyanloop.com/try/flashcard', '_blank')">
-                    <img src="https://i.ibb.co/zH8nb2Ss/SGHA.png" alt="12" class="category-icon">
-                </div> 
-                 <div class="category-card" onclick="window.open('', '_blank')">
-                    <img src="https://i.ibb.co/xSzrv3Pt/SDFT.png" alt="class9" class="category-icon">
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ✅ Banner -->
+  <img class="top-banner" src="https://i.ibb.co/RkdWvZJD/gya.png" alt="Top Banner" />
 
+  <!-- ✅ Video Section -->
+  <div class="video-section">
 
-
-    <!-- Resources Section -->
-    
-<section class="resources-section" id="resources">
-
- <!-- New Promo Image Before Exam Categories -->
-    <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/fYv2yCch/image.png" alt="Exam Preparation Banner" class="promo-image">
-    </div>
- <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/zW7JHkFM/image.png" alt="Exam Preparation Banner" class="promo-image">
+    <!-- Class 8 -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://i.ibb.co/cSVBw3Dd/image.png" alt="Class 8">
+      <div class="video-details">
+        <div class="video-title">Class 8</div>
+        <div class="video-meta">Explore Class 8 subjects</div>
+      </div>
     </div>
 
-<div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/Yr3JXV2/something-is-loading.jpg" alt="Exam Preparation Banner" class="promo-image">
+    <!-- Class 9 -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://i.ibb.co/BVG8D6Mm/image.png" alt="Class 9">
+      <div class="video-details">
+        <div class="video-title">Class 9</div>
+        <div class="video-meta">Explore Class 9 subjects</div>
+      </div>
     </div>
 
-    </section>
-
-    
-    
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        
- <!-- New Promo Image Before Exam Categories -->
-    <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/twGchSs6/image.png" alt="Exam Preparation Banner" class="promo-image">
-    </div>
- <div class="promo-image-card section-gap">
-        <img src="https://i.ibb.co/RTRx1Ldz/image.png" alt="Exam Preparation Banner" class="promo-image">
+    <!-- Class 10 -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://i.ibb.co/q3dCWSSk/image.png" alt="Class 10">
+      <div class="video-details">
+        <div class="video-title">Class 10</div>
+        <div class="video-meta">Explore Class 10 subjects</div>
+      </div>
     </div>
 
+    <!-- Class 11 -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://i.ibb.co/Dfs7Fmdp/image.png" alt="Class 11">
+      <div class="video-details">
+        <div class="video-title">Class 11</div>
+        <div class="video-meta">Explore Class 11 subjects</div>
+      </div>
+    </div>
 
-    </section>
+    <!-- Class 12 -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://i.ibb.co/1JYnKMv4/image.png" alt="Class 12">
+      <div class="video-details">
+        <div class="video-title">Class 12</div>
+        <div class="video-meta">Explore Class 12 subjects</div>
+      </div>
+    </div>
 
-    <!-- Download Section -->
-    <section class="download-section" id="download">
-        <h2>Download Our App</h2>
-        <p>Access all our learning resources on the go with the Gyanloop mobile app</p>
-        <div class="download-buttons">
-            <a href="https://www.gyanloop.com/appdownload">
-                <i class="fab fa-google-play"></i> Download our app
-            </a>
-            
-        </div>
-    </section>
+    <!-- NEET -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://via.placeholder.com/300x180/795548/ffffff?text=NEET" alt="NEET">
+      <div class="video-details">
+        <div class="video-title">NEET</div>
+        <div class="video-meta">Prepare for NEET exam</div>
+      </div>
+    </div>
 
-    
+    <!-- JEE -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://via.placeholder.com/300x180/607d8b/ffffff?text=JEE" alt="JEE">
+      <div class="video-details">
+        <div class="video-title">JEE</div>
+        <div class="video-meta">Prepare for JEE exam</div>
+      </div>
+    </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Gyanloop</h3>
-                <p id="p3">যেখানে প্রতিভাবান মনেরা একসাথে শিখতে, পরীক্ষা করতে এবং উদ্ভাবন করতে আসে।</p>
-                <div class="social-links">
-                    <a href="https://wa.me/9474165029"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="http://www.instagram.com/_gyanloop"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/199P5UkXhp/"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/channel/UCZEEtoOg1UPlvTiAMf_wY8w"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.gyanloop.com/appdownload"><i class="fa-solid fa-download"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Subjects</h3>
-                <ul>
-                    <li><a href="#">Mathematics</a></li>
-                    <li><a href="#">Physics</a></li>
-                    <li><a href="#">Chemistry</a></li>
-                    <li><a href="#">Biology</a></li>
-                    <li><a href="#">Computer Science</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Interactive Tools</a></li>
-                    <li><a href="#">Practice Problems</a></li>
-                    <li><a href="#">Research Papers</a></li>
-                    <li><a href="#">STEM Career Paths</a></li>
-                    <li><a href="https://sites.google.com/view/wavemath?usp=sharing">Educator Resources</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#team">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="Privacy&Policy.html">Privacy and Policy</a></li>
-                    <li><a href="#cta-section">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p id="p3">Copyright © 2025 Gyanloop All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- WBCS -->
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://via.placeholder.com/300x180/e91e63/ffffff?text=WBCS" alt="WBCS">
+      <div class="video-details">
+        <div class="video-title">WBCS</div>
+        <div class="video-meta">Prepare for WBCS exam</div>
+      </div>
+    </div>
 
-    <!-- Floating Action Button -->
-    <a href="#home" class="floating-btn">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+  </div>
 
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+  <script>
+    function redirectTo(url) {
+      window.open(url, '_blank'); // ✅ Opens in a new tab
+    }
+  </script>
 
-        // Team member popups
-        const teamMembers = document.querySelectorAll('.team-member');
-        teamMembers.forEach(member => {
-            member.addEventListener('click', function() {
-                const memberId = this.getAttribute('data-member');
-                const popup = document.getElementById(`member-popup-${memberId}`);
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Close popups
-        const closeButtons = document.querySelectorAll('.popup-close');
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                this.closest('.popup-overlay').classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close popup when clicking outside content
-        const popupOverlays = document.querySelectorAll('.popup-overlay');
-        popupOverlays.forEach(overlay => {
-            overlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        // Testimonial slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            testimonials[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentTestimonial = index;
-        }
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => showTestimonial(index));
-        });
-
-        // Auto-rotate testimonials
-        setInterval(() => {
-            let nextTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(nextTestimonial);
-        }, 5000);
-
-        // Resource tabs
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const tabId = this.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                this.classList.add('active');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.createElement('div');
-        menuToggle.classList.add('menu-toggle');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        document.getElementById('header').appendChild(menuToggle);
-
-        menuToggle.addEventListener('click', function() {
-            document.getElementById('nav').classList.toggle('active');
-            this.innerHTML = document.getElementById('nav').classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking a link
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    document.getElementById('nav').classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-
-        // Initialize electron animations
-        function initElectronAnimations() {
-            const electrons = document.querySelectorAll('.electron');
-            electrons[0].style.animation = 'electron-orbit 5s linear infinite';
-            electrons[1].style.animation = 'electron-orbit-2 7s linear infinite';
-            electrons[2].style.animation = 'electron-orbit-3 9s linear infinite';
-        }
-
-        // Initialize on load
-        window.addEventListener('load', function() {
-            initElectronAnimations();
-        });
-    </script>
 </body>
 </html>
