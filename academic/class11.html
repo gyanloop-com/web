@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GyanLoop - Class 11</title>
+  <link rel="icon" href="https://i.ibb.co/jkpPLS84/ga.png" type="image/png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background-color: #0d1117; color: #e6edf3; padding: 10px; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; background: #161b22;
+              padding: 10px 16px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #30363d;
+              margin-bottom: 12px; border-radius: 6px; }
+    .brand { display: flex; align-items: center; gap: 8px; }
+    .brand img { width: 28px; height: 28px; border-radius: 6px; }
+    .brand span { font-weight: bold; font-size: 16px; color: #fff; }
+    .login-btn { background: #238636; color: white; padding: 6px 12px; border: none; border-radius: 6px;
+                cursor: pointer; font-size: 14px; transition: background 0.3s ease; }
+    .login-btn:hover { background: #2ea043; }
+    .top-banner { width: 100%; max-width: 500px; height: auto; margin: 0 auto 15px; border-radius: 8px;
+                   display: block; box-shadow: 0 0 20px rgba(255, 213, 74, 0.2); }
+    .video-section { display: flex; flex-direction: column; gap: 12px; }
+    .video-card { display: flex; background-color: #161b22; border-radius: 8px; overflow: hidden;
+                   box-shadow: 0 1px 3px rgba(0,0,0,0.4); cursor: pointer; transition: background 0.2s ease; }
+    .video-card:hover { background-color: #1f2736; }
+    .thumbnail { width: 130px; height: 80px; object-fit: cover; flex-shrink: 0; }
+    .video-details { padding: 8px 10px; display: flex; flex-direction: column; justify-content: center; flex-grow: 1; }
+    .video-title { font-size: 15px; font-weight: bold; color: #fff; margin-bottom: 5px; }
+    .video-meta { font-size: 13px; color: #8b949e; }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop">
+      <span>GyanLoop</span>
+    </div>
+    <button class="login-btn">Login</button>
+  </header>
+
+  <img class="top-banner" src="https://i.ibb.co/RkdWvZJD/gya.png" alt="Top Banner" />
+
+  <div class="video-section">
+    <div class="video-card" onclick="redirectTo('https://www.gyanloop.com/try/not')">
+      <img class="thumbnail" src="https://via.placeholder.com/300" alt="Class 11">
+      <div class="video-details">
+        <div class="video-title">Class 11</div>
+        <div class="video-meta">Explore Class 11 resources</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectTo(url) { window.open(url, '_blank'); }
+  </script>
+
+</body>
+</html>
