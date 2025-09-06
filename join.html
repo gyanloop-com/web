@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - GyanLoop | EdTech Innovators</title>
+    <link rel="icon" href="https://i.ibb.co/jkpPLS84/ga.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #35BCD2;
+            --accent: #FF6584;
+            --dark: #2D3748;
+            --light: #F8F9FA;
+            --background: #ffffff;
+            --text: #333333;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        /* Advanced Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            padding: 5px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+            transition: var(--transition);
+        }
+        
+        header.scrolled .logo img {
+            height: 35px;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .desktop-nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .desktop-nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        .desktop-nav a:hover {
+            color: var(--primary);
+        }
+        
+        .desktop-nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--dark);
+            z-index: 1001;
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: linear-gradient(135deg, #6C63FF, #35BCD2);
+            z-index: 999;
+            padding: 80px 40px;
+            transition: right 0.4s ease;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-nav.active {
+            right: 0;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 20px;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            display: block;
+            padding: 10px 0;
+            transition: var(--transition);
+        }
+        
+        .mobile-nav a:hover {
+            transform: translateX(10px);
+        }
+        
+        .close-nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 5% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(53, 188, 210, 0.1));
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Application Section */
+        .application {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05), rgba(53, 188, 210, 0.05));
+            border-radius: 30px;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .form-redirect {
+            margin-top: 30px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--dark), #1a202c);
+            color: white;
+            border-radius: 30px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-details i {
+            font-size: 1.2rem;
+            color: var(--accent);
+            width: 25px;
+        }
+        
+        /* Social Links */
+        .social-section {
+            text-align: center;
+            padding: 60px 5%;
+            background: var(--light);
+            border-radius: 30px;
+            margin: 60px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #cbd5e0;
+            padding: 50px 5% 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-social {
+            margin: 30px 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .benefit-card {
+                padding: 30px 20px;
+            }
+            
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header with Advanced Navigation -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
+                <h1>GyanLoop</h1>
+            </div>
+            
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#benefits">Why Join Us</a></li>
+                    <li><a href="#application">Apply Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#social">Follow Us</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#application" class="nav-cta">Apply Now</a>
+            
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <button class="close-nav">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#benefits">Why Join Us</a></li>
+            <li><a href="#application">Apply Now</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#social">Follow Us</a></li>
+        </ul>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="animate">Shape the Future of Education with GyanLoop</h2>
+            <p class="animate delay-1">Join our mission to revolutionize learning through technology. We're looking for passionate individuals ready to make an impact in the EdTech space.</p>
+            <a href="#application" class="btn animate delay-2">View Open Positions</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Join GyanLoop?</h2>
+                <p>We're building more than just a company - we're building a community of innovators</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate">
+                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Impactful Work</h3>
+                    <p>Your contributions will directly affect how thousands of students learn and grow. Make a real difference in education.</p>
+                </div>
+                <div class="benefit-card animate delay-1">
+                    <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Innovation Culture</h3>
+                    <p>We encourage experimentation and reward innovation. Bring your bold ideas to life in our supportive environment.</p>
+                </div>
+                <div class="benefit-card animate delay-2">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Growth Opportunities</h3>
+                    <p>As a fast-growing startup, we provide rapid career advancement and skill development opportunities.</p>
+                </div>
+                <div class="benefit-card animate">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h3>Great Team</h3>
+                    <p>Work with passionate, talented individuals who support each other and celebrate wins together.</p>
+                </div>
+                <div class="benefit-card animate delay-1">
+                    <div class="benefit-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Work-Life Balance</h3>
+                    <p>We believe in sustainable productivity with flexible hours and remote work options.</p>
+                </div>
+                <div class="benefit-card animate delay-2">
+                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Competitive Compensation</h3>
+                    <p>We offer attractive salary packages, equity options, and comprehensive benefits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application" id="application">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Team</h2>
+                <p>Ready to embark on an exciting journey with us? Apply now!</p>
+            </div>
+            <div class="form-container">
+                <p>Click the button below to access our application form and take the first step toward joining the GyanLoop team!</p>
+                <div class="form-redirect">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXH68uY8E_EzE-fiWVUKsJH1v1MvcICzJOUlrn6KkjRHvskQ/viewform?usp=header" class="btn" target="_blank">Apply Now via Google Form</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section" id="social">
+        <div class="container">
+            <div class="section-title">
+                <h2>Follow Our Journey</h2>
+                <p>Stay connected with us on social media</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/_gyanloop" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1FP2VHZx35/" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/@gyanloopofficial" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://x.com/gyanloop" class="social-link" target="_blank" rel="noopener">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions? We'd love to hear from you</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Reach out to us for any questions about careers at GyanLoop or our application process.</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> info.gyanloop@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 9474165029 (WhatsApp)</p>
+                        <p><i class="fas fa-map-marker-alt"></i> kalna,west bengal, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo" style="height: 35px;">
+                <h1>GyanLoop</h1>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/_gyanloop" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1FP2VHZx35/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/@gyanloopofficial" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://x.com/gyanloop" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+            <p>&copy; 2025-26 GyanLoop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const header = document.querySelector('header');
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const closeNav = document.querySelector('.close-nav');
+        const overlay = document.querySelector('.overlay');
+        
+        // Scroll event for header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile navigation toggle
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close mobile navigation
+        closeNav.addEventListener('click', closeMobileNav);
+        overlay.addEventListener('click', closeMobileNav);
+        
+        function closeMobileNav() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile nav if open
+                    closeMobileNav();
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
+      
