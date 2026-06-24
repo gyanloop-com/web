@@ -1,1134 +1,947 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GyanLoop - Empowering Students with Knowledge</title>
-    <link rel="icon" href="https://i.ibb.co/jkpPLS84/ga.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyanloop — India’s Ivy League for the AI Age</title>
+  
+  <!-- ========== SEO / META TAGS ========== -->
+  <meta name="description" content="Gyanloop is India’s Ivy League for the AI Age, founded by Sumit Haldar and co-founded by Soumik Debnath. Industry-integrated UG programmes built by 100+ leaders from Google, Microsoft, OpenAI, and more." />
+  <meta name="keywords" content="Gyanloop, AI education, Ivy League India, Sumit Haldar, Soumik Debnath, computer science, AI and business, tech education, Bangalore campus" />
+  <meta name="author" content="Sumit Haldar & Soumik Debnath" />
+  <link rel="canonical" href="https://gyanloop.com/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gyanloop — India’s Ivy League for the AI Age" />
+  <meta property="og:description" content="Industry-integrated UG programmes built by 100+ leaders. Founded by Sumit Haldar & Soumik Debnath." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  <meta property="og:url" content="https://gyanloop.com/" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gyanloop — India’s Ivy League for the AI Age" />
+  <meta name="twitter:description" content="Built by 100+ industry leaders. Founded by Sumit Haldar & Soumik Debnath." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=League+Gothic&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      background: #fff;
+      color: #121212;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
- <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "GyanLoop",
-      "url": "https://www.gyanloop.com",
-      "logo": "https://i.ibb.co/jkpPLS84/ga.png",
-      "sameAs": [
-        "https://www.instagram.com/_gyanloop",
-        "https://www.facebook.com/share/199P5UkXhp/",
-        "https://www.youtube.com/@gyanloopofficial"
-      ]
+    /* ---------- VARIABLES ---------- */
+    :root {
+      --black: #121212;
+      --dark: #171717;
+      --border-light: #e4e4e4;
+      --brand-blue: #0041ca;
+      --brand-dark-blue: #083ca0;
+      --brand-subtle: #7dcfff;
+      --brand-light-bg: #ecf8ff;
+      --white: #ffffff;
+      --gray-500: #666;
+      --gray-400: #999;
     }
 
-    </script>
-    <style>
-        :root {
-            --primary: #000000;
-            --secondary: #212121;
-            --accent: #ff3d00;
-            --light: #f5f5f5;
-            --dark: #121212;
-            --success: #00c853;
-            --warning: #ffab00;
-            --text: #e0e0e0;
-            --text-light: #9e9e9e;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text);
-            line-height: 1.6;
-            background-color: var(--dark);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .auth-btn {
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .login-btn {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-
-        .login-btn:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .signup-btn {
-            background: var(--accent);
-            color: white;
-            border: 1px solid var(--accent);
-        }
-
-        .signup-btn:hover {
-            background: transparent;
-            color: var(--accent);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Side Navigation */
-        .side-nav {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background: var(--primary);
-            z-index: 1000;
-            padding: 2rem;
-            transition: var(--transition);
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .side-nav.open {
-            right: 0;
-        }
-
-        .side-nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .side-nav-links {
-            list-style: none;
-        }
-
-        .side-nav-links li {
-            margin-bottom: 1rem;
-        }
-
-        .side-nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: block;
-            padding: 0.5rem 0;
-            transition: var(--transition);
-        }
-
-        .side-nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(33, 33, 33, 0.9)), url('https://images.unsplash.com/photo-1522881193457-37ae97c905bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 6rem 1rem;
-        }
-
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* Vision Section */
-        .vision-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* Features Section */
-        .features {
-            background-color: var(--secondary);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--dark);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        /* App Showcase */
-        .app-showcase-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .screenshots-container {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            padding: 1rem 0;
-            width: 100%;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) transparent;
-        }
-
-        .screenshots-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .screenshots-container::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 4px;
-        }
-
-        .screenshot {
-            flex: 0 0 auto;
-            width: 250px;
-            height: 450px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            background: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-        }
-
-        .app-download {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            background-color: var(--secondary);
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .review-card {
-            background: var(--dark);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .reviewer {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-
-        .reviewer-info {
-            flex: 1;
-        }
-
-        .reviewer-name {
-            font-weight: 600;
-        }
-
-        .stars {
-            color: var(--warning);
-            margin-top: 0.2rem;
-        }
-
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .team-member {
-            text-align: center;
-        }
-
-        .member-avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            overflow: hidden;
-            border: 3px solid var(--accent);
-        }
-
-        .member-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-name {
-            font-weight: 700;
-            color: white;
-            margin-top: 0.5rem;
-        }
-
-        .member-role {
-            color: var(--text-light);
-        }
-
-        /* FAQ Section */
-        .faq {
-            background-color: var(--secondary);
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--dark);
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--text-light);
-        }
-
-        .faq-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--accent);
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        /* Google Reviews Section */
-        .google-reviews {
-            background: var(--dark);
-        }
-
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .google-review-card {
-            background: var(--secondary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .google-logo {
-            font-size: 1.5rem;
-            color: #4285F4;
-            margin-right: 0.5rem;
-        }
-
-        .reviewer-name {
-            font-weight: 600;
-        }
-
-        .review-text {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .review-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .add-review-btn {
-            display: block;
-            margin: 2rem auto 0;
-            text-align: center;
-            max-width: 250px;
-        }
-
-        /* Suggestion Section */
-        .suggestion-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .footer-logo h2 {
-            font-size: 1.5rem;
-        }
-
-        .footer-tagline {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            nav ul, .auth-buttons {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    /* ---------- UTILITIES ---------- */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 80px; }
+    .flex { display: flex; align-items: center; }
+    .flex-col { flex-direction: column; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .gap-8 { gap: 8px; }
+    .gap-12 { gap: 12px; }
+    .gap-16 { gap: 16px; }
+    .gap-24 { gap: 24px; }
+    .gap-32 { gap: 32px; }
+    .gap-40 { gap: 40px; }
+    .text-center { text-align: center; }
+    .w-full { width: 100%; }
+
+    /* ---------- BUTTONS ---------- */
+    .btn-primary {
+      background: var(--brand-blue);
+      color: #fff;
+      padding: 12px 40px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #0035a8; }
+    .btn-outline {
+      background: #fff;
+      color: var(--gray-500);
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+
+    /* ---------- SUBSCRIBE FORM ---------- */
+    .subscribe-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .subscribe-form input {
+      padding: 12px 20px;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      font-size: 14px;
+      min-width: 180px;
+      flex: 1;
+      background: #fff;
+    }
+    .subscribe-form input:focus { outline: none; border-color: var(--brand-blue); }
+    .subscribe-form .btn-primary { padding: 12px 28px; }
+
+    /* ---------- TOP NAV ---------- */
+    .top-nav {
+      background: var(--black);
+      color: #f0f0f0;
+      padding: 6px 80px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      font-size: 13px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .top-nav a { color: #f0f0f0; transition: color 0.2s; }
+    .top-nav a:hover { color: var(--brand-subtle); }
+    .top-nav .divider { color: #666; user-select: none; }
+
+    /* ---------- MAIN NAV ---------- */
+    .main-nav {
+      background: var(--black);
+      padding: 12px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2a2a2a;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo img { height: 32px; width: auto; display: block; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: #e0e0e0;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brand-subtle); }
+    .nav-links .active { color: var(--brand-subtle); }
+
+    /* --- Hamburger (mobile) --- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ---------- HERO (with responsive image) ---------- */
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 80px 80px 64px;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: 100%;
+    }
+    .hero-content { flex: 1; max-width: 800px; }
+    .hero-content h1 { font-size: 54px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .hero-content p { font-size: 18px; font-weight: 500; color: #ccc; margin-bottom: 24px; }
+    .hero-content .badge-row { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-top: 12px; }
+    .hero-content .badge-row img { height: 28px; opacity: 0.8; }
+    .hero-actions { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+    .hero .deadline { margin-top: 20px; font-size: 14px; color: #aaa; }
+
+    /* Hero image - visible on laptop (right side) */
+    .hero-image {
+      flex: 0 0 900px;
+      max-width: 900px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1a2e;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Hero image - hidden on mobile (will be shown above heading via CSS) */
+    .hero-image-mobile {
+      display: none;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: #1a1a2e;
+    }
+    .hero-image-mobile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ---------- HIGHLIGHTS CARDS ---------- */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 5;
+    }
+    .highlight-card {
+      background: var(--dark);
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 20px 20px 24px;
+      color: #fff;
+      transition: transform 0.2s;
+    }
+    .highlight-card:hover { transform: translateY(-4px); }
+    .highlight-card .icon { margin-bottom: 12px; }
+    .highlight-card h4 { font-size: 18px; font-weight: 600; color: var(--brand-subtle); margin-bottom: 6px; }
+    .highlight-card p { font-size: 14px; color: #bbb; line-height: 1.5; }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 64px 0; }
+    .section-title { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+    .section-sub { font-size: 16px; color: var(--gray-500); max-width: 700px; }
+    .bg-light { background: #fafafa; }
+    .bg-white { background: #fff; }
+
+    /* ---------- STATS ROW ---------- */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px 80px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 28px 40px;
+      margin: 32px 0;
+    }
+    .stat-item h2 {
+      font-size: 40px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--brand-dark-blue), #4a8aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-item p { color: var(--gray-500); font-weight: 500; margin-top: 4px; }
+
+    /* ---------- OUTCOME CARDS ---------- */
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .outcome-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+    }
+    .outcome-card .logo-wrap { height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+    .outcome-card .logo-wrap img { max-height: 40px; }
+    .outcome-card h5 { font-size: 18px; font-weight: 600; color: var(--brand-dark-blue); }
+    .outcome-card p { font-size: 14px; color: var(--gray-500); margin-top: 4px; }
+
+    /* ---------- PROGRAMME CARDS ---------- */
+    .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .program-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .program-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
+    .program-card .video-placeholder {
+      height: 200px;
+      background: #eef3f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-weight: 500;
+      position: relative;
+    }
+    .program-card .video-placeholder .play {
+      background: rgba(0,0,0,0.6);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+    }
+    .program-body { padding: 20px 24px 24px; }
+    .program-body .tag {
+      background: var(--brand-light-bg);
+      color: var(--brand-dark-blue);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      padding: 2px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .program-body h3 { font-size: 24px; font-weight: 700; color: var(--brand-dark-blue); margin-bottom: 6px; }
+    .program-body p { color: var(--gray-500); font-size: 14px; margin-bottom: 12px; }
+    .program-body .highlight-list { display: flex; flex-direction: column; gap: 6px; margin: 12px 0 16px; }
+    .program-body .highlight-list li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #333; }
+    .program-body .highlight-list li .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-blue); }
+
+    /* ---------- TESTIMONIAL ---------- */
+    .testimonial {
+      background: var(--brand-light-bg);
+      border-radius: 8px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .testimonial blockquote { font-size: 20px; font-weight: 600; color: var(--brand-dark-blue); flex: 1; }
+    .testimonial .author { font-weight: 500; color: var(--gray-500); margin-top: 8px; font-size: 14px; }
+    .testimonial .author span { display: block; font-weight: 400; color: #888; }
+    .testimonial .avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
+
+    /* ---------- SUPER MENTORS ---------- */
+    .mentors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .mentor-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+    }
+    .mentor-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      background: #eee;
+    }
+    .mentor-card h4 { font-size: 18px; font-weight: 600; }
+    .mentor-card p { font-size: 14px; color: var(--gray-500); }
+
+    /* ---------- YOUTUBE VIDEOS ---------- */
+    .youtube-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .youtube-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .youtube-card .thumb {
+      height: 180px;
+      background: #d0d7e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      color: #555;
+      position: relative;
+    }
+    .youtube-card .thumb .play-btn {
+      background: rgba(0,0,0,0.6);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+    }
+    .youtube-card .body { padding: 16px 20px; }
+    .youtube-card .body h5 { font-weight: 600; font-size: 15px; }
+
+    /* ---------- FAQ ---------- */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; margin: 0 auto; }
+    .faq-item {
+      background: #fafafa;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 16px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .faq-item:hover { background: #f0f4ff; }
+    .faq-item .question {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #222;
+    }
+    .faq-item .answer {
+      margin-top: 8px;
+      color: var(--gray-500);
+      font-size: 14px;
+      display: none;
+    }
+    .faq-item.open .answer { display: block; }
+    .faq-item .plus { font-size: 20px; color: var(--brand-blue); }
+
+    /* ---------- SOCIAL MEDIA ---------- */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 16px 0 32px;
+    }
+    .social-links a {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 40px;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .social-links a:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+
+    /* ---------- TOP ARTICLES ---------- */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .article-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .article-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .article-card .body { padding: 16px 20px 20px; }
+    .article-card .body h5 { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+    .article-card .body p { font-size: 14px; color: var(--gray-500); }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--black);
+      color: #ddd;
+      padding: 64px 80px 32px;
+      border-top: 1px solid #2a2a2a;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-brand .logo { height: 40px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: #aaa; max-width: 300px; }
+    .footer-social { display: flex; gap: 12px; margin-top: 16px; }
+    .footer-social a {
+      background: #2a2a2a;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .footer-social a:hover { background: var(--brand-blue); }
+    .footer-col h5 { color: var(--brand-subtle); font-weight: 600; margin-bottom: 16px; font-size: 16px; }
+    .footer-col a { display: block; color: #ccc; font-size: 14px; padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid #2a2a2a;
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1200px) {
+      .container, .main-nav, .top-nav, .hero, .footer { padding-left: 40px; padding-right: 40px; }
+      .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+      .program-grid { grid-template-columns: 1fr; }
+      .articles-grid, .mentors-grid, .youtube-grid { grid-template-columns: 1fr 1fr; }
+      .hero-image { flex: 0 0 280px; max-width: 280px; }
+    }
+    @media (max-width: 992px) {
+      .hero-wrapper { flex-direction: column; gap: 32px; }
+      .hero-image { display: none; }
+      .hero-image-mobile { display: block; }
+      .hero-content { max-width: 100%; }
+      .hero-content h1 { font-size: 40px; }
+    }
+    @media (max-width: 768px) {
+      .container, .main-nav, .top-nav, .hero, .footer { padding-left: 20px; padding-right: 20px; }
+      .top-nav { display: none; }
+      .main-nav { flex-wrap: wrap; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--black);
+        padding: 20px 0;
+        gap: 16px;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero { padding: 40px 20px; }
+      .hero-content h1 { font-size: 32px; }
+      .highlights-grid { grid-template-columns: 1fr; margin-top: 0; }
+      .stats-row { flex-direction: column; gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .testimonial { flex-direction: column; text-align: center; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .articles-grid, .mentors-grid, .youtube-grid { grid-template-columns: 1fr; }
+      .hero .badge-row img { height: 20px; }
+      .program-grid { grid-template-columns: 1fr; }
+      .hero-image-mobile { margin-bottom: 16px; }
+    }
+    @media (max-width: 480px) {
+      .btn-primary { padding: 10px 24px; }
+      .hero-actions { flex-direction: column; }
+      .subscribe-form input { min-width: 140px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
-                <h1>GyanLoop</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#vision">Vision</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#app">App</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </nav>
-            <div class="auth-buttons">
-                <a href="#" class="auth-btn login-btn">Login</a>
-                <a href="#" class="auth-btn signup-btn">Sign Up</a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
 
-    <!-- Side Navigation -->
-    <div class="side-nav" id="sideNav">
-        <div class="side-nav-header">
-            <div class="logo">
-                <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo" height="30">
-                <h2>GyanLoop</h2>
-            </div>
-            <button class="close-btn">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul class="side-nav-links">
-            <li><a href="#vision">Vision</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#app">App</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#google-reviews">Google Reviews</a></li>
-            <li><a href="#suggestion">Suggestions</a></li>
-            <li><a href="https://www.gyanloop.com/login" class="auth-btn login-btn">Login</a></li>
-            <li><a href="https://www.gyanloop.com/appdownload" class="auth-btn signup-btn">app</a></li>
-        </ul>
+<!-- ==================== TOP NAV ==================== -->
+<div class="top-nav">
+  <a href="#">Our Students</a> <span class="divider">|</span>
+  <a href="#">Campus Tour</a> <span class="divider">|</span>
+  <a href="#">Hire from us</a> <span class="divider">|</span>
+  <a href="#">Events</a> <span class="divider">|</span>
+  <a href="#">Guide</a>
+</div>
+
+<!-- ==================== MAIN NAV ==================== -->
+<nav class="main-nav">
+  <div class="nav-logo">
+    <a href="#">
+      <img src="https://raw.githubusercontent.com/sumitaidev/blogger/refs/heads/main/image%20host/GyanloopLOGO.png" alt="Gyanloop Logo" style="height:52px; width:auto;">
+    </a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#" class="active">Home</a>
+    <a href="#">Programs</a>
+    <a href="#">Admission & Fees</a>
+    <a href="#">Degree</a>
+    <a href="#">Outcomes</a>
+    <a href="#">Campus Life</a>
+    <a href="#">FAQs</a>
+  </div>
+</nav>
+
+<!-- ==================== HERO with responsive image ==================== -->
+<section class="hero">
+  <div class="hero-wrapper">
+    <!-- Mobile hero image (visible only on mobile) -->
+    <div class="hero-image-mobile">
+      <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Gyanloop Campus" />
     </div>
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Empowering Students with Knowledge</h2>
-            <p>Interactive learning platform with video lessons, quizzes, and certificates to help you excel in your studies</p>
-            <a href="https://www.gyanloop.com/webapp" class="btn">Get Started</a>
-        </div>
-    </section>
-
-    <!-- Vision Section -->
-    <section id="vision">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Vision</h2>
-            </div>
-            <div class="vision-content">
-                <p>At GyanLoop, we aim to simplify learning by creating accessible, engaging, and modern digital educational resources for students.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Features</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Interactive Video Learning</h3>
-                    <p>Engage with high-quality video lessons from expert educators</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sticky-note"></i>
-                    </div>
-                    <h3>Chapter-wise Notes</h3>
-                    <p>Access well-organized study materials for each chapter</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI fastrack learning</h3>
-                    <p>ai besed learning that learning make faster</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile-Friendly App</h3>
-                    <p>Learn on the go with our ai-capable mobile app</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Student Community</h3>
-                    <p>Get support from a vibrant community of learners</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Showcase Section -->
-    <section id="app" class="app-showcase">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our App</h2>
-            </div>
-            <div class="app-showcase-content">
-                <p class="app-description">Learn anywhere, anytime with our mobile app.</p>
-                <div class="screenshots-container">
-                    <div class="screenshot"><img src="https://i.ibb.co/bRLr5CQS/qw.jpg" alt="App Screenshot 1" style="width: 100%; height: 100%; object-fit: cover;"></div>
-                    <div class="screenshot"><img src="https://i.ibb.co/1YMTk6K3/qw1.jpg" alt="App Screenshot 2" style="width: 100%; height: 100%; object-fit: cover;"></div>
-                    <div class="screenshot"><img src="https://i.ibb.co/HpBF0ZGP/qw2.jpg" alt="App Screenshot 3" style="width: 100%; height: 100%; object-fit: cover;"></div>
-                </div>
-                <div class="app-download">
-                    <a href="https://www.gyanloop.com/appdownload" class="btn">Download App</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="reviews">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Students Say</h2>
-            </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="reviewer-avatar">RS</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Rahul Sharma</div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="review-text">The best platform for quick learning. Very easy to use!</p>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="reviewer-avatar">PD</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Priya Das</div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="review-text">GyanLoop app has helped me revise before exams. Loved the notes!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Foundation Team</h2>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <img src="https://i.ibb.co/kgsYkd4v/sumit.jpg" alt="Sumit Haldar">
-                    </div>
-                    <h3 class="member-name">Sumit Haldar</h3>
-                    <p class="member-role">Founder</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <img src="https://i.ibb.co/ZnYcWq8/image.png" alt="Soumik Debnath">
-                    </div>
-                    <h3 class="member-name">Soumik Debnath</h3>
-                    <p class="member-role">Founder</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <img src="https://i.ibb.co/m5B9MMdH/image.png" alt="Kusal Bhowmick">
-                    </div>
-                    <h3 class="member-name">Kusal Bhowmick</h3>
-                    <p class="member-role">Content Manager</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <img src="https://i.ibb.co/20rRjkMn/image.png" alt="Bishnu Haldar">
-                    </div>
-                    <h3 class="member-name">Bishnu Haldar</h3>
-                    <p class="member-role">Content Manager</p>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <img src="https://i.ibb.co/d4yfcdhT/image.png" alt="Priyadwip Bhowmick">
-                    </div>
-                    <h3 class="member-name">Priyadwip Bhowmick</h3>
-                    <p class="member-role">Content Manager</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Google Reviews Section -->
-    <section id="google-reviews" class="google-reviews">
-        <div class="container">
-            <div class="section-header">
-                <h2>Google Reviews</h2>
-            </div>
-            <div class="reviews-container">
-                <div class="google-review-card">
-                    <div class="review-header">
-                        <div class="google-logo">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="reviewer-name">Rahul Sharma</div>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">The best educational app I've used. The video lessons are incredibly helpful for exam preparation.</p>
-                    <div class="review-date">Posted 2 weeks ago</div>
-                </div>
-                <div class="google-review-card">
-                    <div class="review-header">
-                        <div class="google-logo">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="reviewer-name">Priya Das</div>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="review-text">Notes are well organized and easy to understand. The quizzes after each chapter really help with retention.</p>
-                    <div class="review-date">Posted 1 month ago</div>
-                </div>
-                <div class="google-review-card">
-                    <div class="review-header">
-                        <div class="google-logo">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="reviewer-name">Amit Kumar</div>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-text">Certificate generation feature is amazing! I can quickly download my course completion certificates.</p>
-                    <div class="review-date">Posted 3 days ago</div>
-                </div>
-            </div>
-            <a href="https://g.page/r/CRv3CEOEC_-aEAE/review" class="btn add-review-btn">Add Your Google Review</a>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How can I download APP?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>plese click the below link for download the app</p>
-                        <a href="https://www.gyanloop.com/appdownload" class="faq-link">Go to app Section</a>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is the app free?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, the app is free to download and use.</p>
-                        <a href="https://www.gyanloop.com/appdownload" class="faq-link">Download App</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Student Suggestion Section -->
-    <section id="suggestion">
-        <div class="container">
-            <div class="section-header">
-                <h2>Student Suggestion</h2>
-            </div>
-            <div class="suggestion-content">
-                <p>We value student feedback! Share your ideas and suggestions with us.</p>
-                <a href="https://forms.gle/bPScoAyjogvKwBaw7" class="btn">Share Your Suggestions</a>
-            </div>
-        </div>
-    </section>
     
-    <!-- Student support Section -->
-    <section id="suggestion">
-        <div class="container">
-            <div class="section-header">
-                <h2>WhatsApp help desk </h2>
-            </div>
-            <div class="suggestion-content">
-                <p>if you need need anytype of help then WhatsApp Us anytime</p>
-                <a href="https://wa.me/9474165029" class="btn">send "hi" on WhatsApp</a>
-            </div>
+    <div class="hero-content">
+      <h1>India’s  League for the AI Age</h1>
+      <p>Industry Integrated UG Programmes Built by 100+ leaders from</p>
+      <div class="badge-row">
+        <img src="https://framerusercontent.com/images/XIQiyMIZSuyV5Zee7hNBsdcFhA.webp?width=1221&height=345" alt="Google" style="height:28px;">
+        <img src="https://framerusercontent.com/images/J6aEaYQPcYWh4nrK8QripUQOkF4.webp?width=354&height=112" alt="Microsoft" style="height:28px;">
+        <img src="https://framerusercontent.com/images/1LXozUB9IOXNQ0gcCVWyT7gnCw8.webp?width=287&height=112" alt="OpenAI" style="height:28px;">
+        <img src="https://framerusercontent.com/images/pxjnPbTaLqv0IflleNvwgfOBi34.webp?width=1746&height=345" alt="DeepMind" style="height:28px;">
+        <img src="https://framerusercontent.com/images/mtbHhO9yYXXsA7rJ0gJCQ6a3ML4.webp?width=364&height=112" alt="Uber" style="height:28px;">
+        <img src="https://framerusercontent.com/images/cavKTx5xjW3pzhMZrlkFTN2i7cY.webp?width=261&height=112" alt="Meta" style="height:28px;">
+      </div>
+      <div class="hero-actions">
+        <div class="subscribe-form">
+          <input type="email" placeholder="Enter your email to subscribe" />
+          <button class="btn-primary">Subscribe →</button>
         </div>
-    </section>
+      </div>
+      <div class="deadline">June-2 Intake deadline : 26th June 2026</div>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="https://i.ibb.co/jkpPLS84/ga.png" alt="GyanLoop Logo">
-                        <h2>GyanLoop</h2>
-                    </div>
-                    <p class="footer-tagline">যেখানে প্রযুক্তি ও জ্ঞান একসাথে, আপনার হাতের মুঠোয়।</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/_gyanloop" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/199P5UkXhp/" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@gyanloopofficial" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://x.com/gyanloop" class="social-link" target="_blank" rel="noopener">
-    <i class="fab fa-x-twitter"></i>
-</a>
+    <!-- Desktop hero image (right side) -->
+    <div class="hero-image">
+      <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Gyanloop Campus" />
+    </div>
+  </div>
+</section>
 
-<a href="https://www.linkedin.com/company/gyanloop" class="social-link" target="_blank" rel="noopener">
-    <i class="fab fa-linkedin"></i>
-</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#vision">Our Vision</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#app">Our App</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="https://www.gyanloop.com/certificate">Certificate</a></li>
-                        <li><a href="https://www.gyanloop.com/app">Download App</a></li>
-                        <li><a href="#suggestion">Suggestions</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025-26 GyanLoop. All rights reserved.</p>
-            </div>
+<!-- ==================== HIGHLIGHTS CARDS ==================== -->
+<div class="container" style="margin-top: -20px; padding-bottom: 40px;">
+  <div class="highlights-grid">
+    <div class="highlight-card"><div class="icon">⚡</div><h4>Learn by Building</h4><p>Future-proof curriculum with AI embedded from day one</p></div>
+    <div class="highlight-card"><div class="icon">🧪</div><h4>Industry Led Innovation Lab</h4><p>India's only deep tech lab for UG with funding support for startup</p></div>
+    <div class="highlight-card"><div class="icon">🏙️</div><h4>Bangalore</h4><p>Fully residential Urban Campus in India's Silicon Valley</p></div>
+    <div class="highlight-card"><div class="icon">👥</div><h4>Talented Peers</h4><p>In 2025 only the top 3.3% talented students were shortlisted</p></div>
+  </div>
+</div>
+
+<!-- ==================== OUTCOMES / PLACEMENTS ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom: 8px;">Top Companies Queuing Up Before Placement Season</h2>
+    <p class="section-sub" style="margin-bottom: 24px;">Via internships that convert to full-time offers</p>
+    <div class="stats-row">
+      <div class="stat-item"><h2>21 LPA</h2><p>Average CTC being offered on campus</p></div>
+      <div class="stat-item"><h2>46 LPA</h2><p>CTC on PPO</p></div>
+      <div class="stat-item"><h2>44 LPA</h2><p>CTC on PPO</p></div>
+      <div class="stat-item"><h2>38 LPA</h2><p>CTC on PPO</p></div>
+      <div class="stat-item"><h2>30 LPA</h2><p>CTC on PPO</p></div>
+    </div>
+    <div class="outcome-grid" style="margin-top: 16px;">
+      <div class="outcome-card">
+        <div class="logo-wrap"><img src="https://framerusercontent.com/images/HKA7pKmnGwrKVbUAh91gf1tfUI4.webp?width=789&height=267" alt="Amazon"></div>
+        <h5>46 LPA</h5><p>Scaler placed more learners in Amazon than all IITs combined.</p>
+      </div>
+      <div class="outcome-card">
+        <div class="logo-wrap"><img src="https://framerusercontent.com/images/pJUvI1TIdJuv2J8sOdnAxlWjD2M.webp?width=5564&height=1014" alt="Google" style="max-height:32px;"></div>
+        <h5>44 LPA</h5><p>1200+ hiring partners including MAANG & AI startups</p>
+      </div>
+      <div class="outcome-card">
+        <div class="logo-wrap"><img src="https://framerusercontent.com/images/M5Ng5KEd744AOvLVFG8piVaTM.webp?width=4492&height=1014" alt="Microsoft" style="max-height:32px;"></div>
+        <h5>38 LPA</h5><p>10+ startups founded by SST students, 1 incubated featured on Shark Tank</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROGRAMMES ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">Explore Programmes</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 32px;">Explore the programmes and choose your best fit</p>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="video-placeholder"><div class="play">▶</div></div>
+        <div class="program-body">
+          <span class="tag">4 Year UGP</span>
+          <h3>Computer Science & AI</h3>
+          <p>Build real world software and advanced AI systems used by top tech companies</p>
+          <ul class="highlight-list">
+            <li><span class="dot"></span> 50+ projects and 1 year industry immersion</li>
+            <li><span class="dot"></span> Learn advanced CS, AI/ML, system design and algo trading</li>
+            <li><span class="dot"></span> Graduate as Senior Software Engineer and AI/ML Engineer</li>
+          </ul>
+          <div class="subscribe-form" style="width:100%;">
+            <input type="email" placeholder="Subscribe for updates" style="flex:1; min-width:120px;" />
+            <button class="btn-primary" style="padding: 10px 20px;">Subscribe →</button>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="program-card">
+        <div class="video-placeholder"><div class="play">▶</div></div>
+        <div class="program-body">
+          <span class="tag">4 Year UGP</span>
+          <h3>AI & Business</h3>
+          <p>Build AI products and ship to real users for top tech companies & startups</p>
+          <ul class="highlight-list">
+            <li><span class="dot"></span> 6 months building a tech startup, 6 months industry immersion</li>
+            <li><span class="dot"></span> Learn interdisciplinary skills - CS, AI/ML, product thinking & business</li>
+            <li><span class="dot"></span> Graduate as AI Product Manager, AI Consultant or Tech Founder</li>
+          </ul>
+          <div class="subscribe-form" style="width:100%;">
+            <input type="email" placeholder="Subscribe for updates" style="flex:1; min-width:120px;" />
+            <button class="btn-primary" style="padding: 10px 20px;">Subscribe →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "GyanLoop",
-      "url": "https://www.gyanloop.com",
-      "logo": "https://i.ibb.co/jkpPLS84/ga.png",
-      "sameAs": [
-        "https://www.instagram.com/_gyanloop",
-        "https://www.facebook.com/share/199P5UkXhp/",
-        "https://www.youtube.com/@gyanloopofficial"
-      ]
-    }
-    </script>
+<!-- ==================== SUPER MENTORS ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <h2 class="section-title text-center">Super Mentors</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 32px;">Learn from the best in the industry</p>
+    <div class="mentors-grid">
+      <div class="mentor-card">
+        <img src="https://framerusercontent.com/images/y0wtuUI1pHIVaDrMltIxiCksre8.webp?width=912&height=882" alt="Rajan Anandan">
+        <h4>Rajan Anandan</h4>
+        <p>Ex VP South-East Asia, Google</p>
+      </div>
+      <div class="mentor-card">
+        <img src="https://framerusercontent.com/images/DiubR4yD84NwE01RQ5zlVfOO8E.webp?width=912&height=882" alt="Arvind N">
+        <h4>Arvind N</h4>
+        <p>Co-Creator GPT-3 & 4, OpenAI</p>
+      </div>
+      <div class="mentor-card">
+        <img src="https://framerusercontent.com/images/2XkPhGyOrWPUVSzikTO0ssLoE4.webp?width=912&height=882" alt="Varun Mohan">
+        <h4>Varun Mohan</h4>
+        <p>Lead Engineer, Google DeepMind</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Toggle FAQ answers
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            });
-        });
+<!-- ==================== LATEST YOUTUBE VIDEOS ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">Latest YouTube Videos</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 32px;">Insights and talks from our community</p>
+    <div class="youtube-grid">
+      <div class="youtube-card">
+        <div class="thumb"><div class="play-btn">▶</div></div>
+        <div class="body"><h5>Building Antigravity at Google DeepMind</h5><p>Varun Mohan shares his journey</p></div>
+      </div>
+      <div class="youtube-card">
+        <div class="thumb"><div class="play-btn">▶</div></div>
+        <div class="body"><h5>OpenAI’s first agent — Yash Kumar</h5><p>Creator of ChatGPT agents</p></div>
+      </div>
+      <div class="youtube-card">
+        <div class="thumb"><div class="play-btn">▶</div></div>
+        <div class="body"><h5>Rajan Anandan on excellence & failure</h5><p>Striving for success</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const sideNav = document.getElementById('sideNav');
-        const overlay = document.getElementById('overlay');
-        const closeBtn = document.querySelector('.close-btn');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            sideNav.classList.add('open');
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeBtn.addEventListener('click', closeSideNav);
-        overlay.addEventListener('click', closeSideNav);
-        
-        function closeSideNav() {
-            sideNav.classList.remove('open');
-            overlay.classList.remove('open');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
+<!-- ==================== STATS / PEERS ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between; background: #f8faff; border-radius: 12px; padding: 32px 40px;">
+      <div>
+        <h3 style="font-size: 28px; font-weight: 700; color: var(--brand-dark-blue);">Batch 2025 Admissions Stats</h3>
+        <div style="display: flex; gap: 40px; margin-top: 12px; flex-wrap: wrap;">
+          <div><strong style="font-size: 32px; color: var(--black);">15,000</strong><br><span style="color: var(--gray-500);">NSET Takers</span></div>
+          <div><strong style="font-size: 32px; color: var(--black);">1,000</strong><br><span style="color: var(--gray-500);">Interviewed</span></div>
+          <div><strong style="font-size: 32px; color: var(--black);">250</strong><br><span style="color: var(--gray-500);">Selected</span></div>
+          <div><strong style="font-size: 32px; color: var(--brand-blue);">3.3%</strong><br><span style="color: var(--gray-500);">Selection Rate</span></div>
+        </div>
+      </div>
+      <div style="max-width: 300px;">
+        <p style="font-weight: 600; color: var(--brand-dark-blue);">183+ students also secured offers from IITs, NITs, University of Toronto etc.</p>
+        <div class="subscribe-form" style="margin-top: 12px;">
+          <input type="email" placeholder="Subscribe for updates" style="flex:1; min-width:120px;" />
+          <button class="btn-primary" style="padding: 10px 20px;">Subscribe →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIAL ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <div class="testimonial">
+      <div>
+        <blockquote>“Today, where even top-tier institutes like IITs are running old syllabi, Scaler does the job of producing high-quality engineers”</blockquote>
+        <div class="author">Amitabh Kant <span>Ex-CEO - NITI Aayog, G20 India Sherpa</span></div>
+      </div>
+      <div class="avatar" style="background: #ccc; background-image: url('https://framerusercontent.com/images/cfA4yLurZrHRqZFSG51GQgotCM.png?width=169&height=160'); background-size: cover;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ SECTION ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <h2 class="section-title text-center">Frequently Asked Questions</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 32px;">Everything you need to know about Gyanloop</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="question"><span>How is Gyanloop different from a regular engineering college?</span><span class="plus">+</span></div>
+        <div class="answer">Gyanloop offers an industry-integrated curriculum built by 100+ leaders from Google, Microsoft, OpenAI, etc. We focus on project-based learning, real-world applications, and early industry exposure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="question"><span>What is the difference between CS & AI and AI & Business?</span><span class="plus">+</span></div>
+        <div class="answer">CS & AI is deep technical — you'll build complex systems and master AI/ML. AI & Business combines technical skills with product thinking and business strategy, ideal for those who want to build AI products and lead.</div>
+      </div>
+      <div class="faq-item">
+        <div class="question"><span>Can I apply for both programmes simultaneously?</span><span class="plus">+</span></div>
+        <div class="answer">Yes, you can rank your preferences during the application process. You'll be considered for your top choice based on your profile and interview performance.</div>
+      </div>
+      <div class="faq-item">
+        <div class="question"><span>Do I need coding experience before joining?</span><span class="plus">+</span></div>
+        <div class="answer">No prior coding experience is required. Our curriculum starts from the fundamentals and progressively builds advanced skills. A strong aptitude for problem-solving and curiosity is key.</div>
+      </div>
+      <div class="faq-item">
+        <div class="question"><span>What is the NSET exam and how do I prepare for it?</span><span class="plus">+</span></div>
+        <div class="answer">NSET is our entrance test designed to assess logical reasoning, mathematical ability, and analytical thinking. We provide free mock tests and preparation material after you apply.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SOCIAL MEDIA + TOP ARTICLES ==================== -->
+<section class="bg-light">
+  <div class="container">
+    <h2 class="section-title text-center">Follow Our Journey on Social Media</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 8px;">Join thousands of students building the future</p>
+    <div class="social-links">
+      <a href="#"><span>📸</span> @gyanloop_tech</a>
+      <a href="#"><span>▶️</span> @GyanloopOfficial</a>
+    </div>
+
+    <h2 class="section-title text-center" style="margin-top: 48px;">Top Articles</h2>
+    <p class="section-sub text-center" style="margin: 0 auto 32px;">Insights from our community and industry leaders</p>
+    <div class="articles-grid">
+      <div class="article-card">
+        <img src="https://framerusercontent.com/images/CpFI4G1C9bd3Zox1ww3NWggHVo.webp?width=2130&height=1308" alt="IIT Roorkee">
+        <div class="body"><h5>IIT Roorkee & Scaler Partner for AI Programs</h5><p>Addressing talent shortages with high-impact AI education.</p></div>
+      </div>
+      <div class="article-card">
+        <img src="https://framerusercontent.com/images/7kQE43WTpax0ZQo5Sqi43xcYyDs.webp?width=2132&height=1310" alt="DIGIT GovTech">
+        <div class="body"><h5>DIGIT GovTech Course Launched</h5><p>Training future public-tech leaders in partnership with eGov.</p></div>
+      </div>
+      <div class="article-card">
+        <img src="https://framerusercontent.com/images/Sab8iSlOvxxP2e8N8wmEpM3pH9M.webp?width=2132&height=1310" alt="CS aspirant">
+        <div class="body"><h5>Why a CS aspirant chose Gyanloop over IIT</h5><p>Real-world learning and industry exposure tipped the scales.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CAMPUS / BANNER ==================== -->
+<section class="bg-white">
+  <div class="container">
+    <div style="background: var(--brand-dark-blue); border-radius: 12px; padding: 32px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #fff;">
+      <div>
+        <h3 style="font-size: 28px; font-weight: 700;">Plan your next step with confidence</h3>
+        <p style="margin-top: 6px; opacity: 0.8;">Connect with our Admission Counsellor to:</p>
+        <ul style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+          <li>✓ Understand the admission process</li>
+          <li>✓ Explore scholarships & degree options</li>
+          <li>✓ Discover if Gyanloop is the right fit for your goals</li>
+        </ul>
+        <div class="subscribe-form" style="margin-top: 16px;">
+          <input type="email" placeholder="Enter your email" style="flex:1; min-width:160px;" />
+          <button class="btn-primary" style="background: #fff; color: var(--brand-dark-blue);">Subscribe →</button>
+        </div>
+      </div>
+      <div style="flex-shrink: 0; max-width: 300px; border-radius: 8px; overflow: hidden; background: #0a2661; padding: 8px;">
+        <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Campus" style="width:100%; display:block; border-radius: 4px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" alt="Gyanloop" class="logo" style="height:40px; width:auto;">
+      <p style="margin-top: 12px;">#CreateImpact — India’s Ivy League for the AI Age.</p>
+      <p style="font-size: 13px; color: #888; margin-top: 4px;">Founded by Sumit Haldar &amp; Soumik Debnath</p>
+      <div class="footer-social">
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M22.23 0H1.77C.792 0 0 .774 0 1.73v20.54C0 23.227.792 24 1.77 24h20.46c.978 0 1.77-.773 1.77-1.73V1.73C24 .774 23.208 0 22.23 0zM7.125 20.452H3.558V8.972h3.567v11.48zM5.34 7.35c-1.143 0-2.07-.928-2.07-2.071 0-1.144.927-2.071 2.07-2.071s2.07.927 2.07 2.07c0 1.144-.927 2.071-2.07 2.071zm15.112 13.102h-3.566v-5.636c0-1.344-.027-3.073-1.87-3.073-1.872 0-2.159 1.463-2.159 2.974v5.735h-3.567V8.972h3.425v1.572h.049c.477-.903 1.643-1.855 3.38-1.855 3.613 0 4.278 2.379 4.278 5.472v6.263z"/></svg></a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Our Offerings</h5><a href="#">Scaler School of Business</a><a href="#">Scaler School of Technology</a><a href="#">Software Development</a><a href="#">Data Science</a><a href="#">DevOps, Cloud & Cybersecurity</a><a href="#">Advanced AI & ML</a></div>
+    <div class="footer-col"><h5>Resources</h5><a href="#">Events</a><a href="#">Scaler Topics</a><a href="#">Alumni Review</a><a href="#">Scaler Blogs</a><a href="#">Careers</a><a href="#">Terms of use</a><a href="#">Privacy Policy</a></div>
+    <div class="footer-col"><h5>Other</h5><a href="#">About Us</a><a href="#">Hire from us</a><a href="#">Become a Mentor</a><a href="#">Become a TA</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 Gyanloop — Built with ❤️ by Sumit Haldar &amp; Soumik Debnath</div>
+</footer>
+
+<!-- ==================== STICKY SUBSCRIBE ==================== -->
+<div style="position: fixed; bottom: 24px; right: 24px; z-index: 999;">
+  <div class="subscribe-form" style="background: #fff; padding: 8px 12px; border-radius: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border: 1px solid var(--border-light);">
+    <input type="email" placeholder="Subscribe" style="border: none; padding: 8px 12px; min-width: 140px; font-size: 13px;" />
+    <button class="btn-primary" style="padding: 8px 18px; border-radius: 40px; font-size: 13px;">Subscribe</button>
+  </div>
+</div>
+
+<!-- ==================== HAMBURGER TOGGLE & FAQ ==================== -->
+<script>
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  // FAQ toggle
+  document.querySelectorAll('.faq-item .question').forEach(item => {
+    item.addEventListener('click', function() {
+      this.parentElement.classList.toggle('open');
+      const plus = this.querySelector('.plus');
+      plus.textContent = this.parentElement.classList.contains('open') ? '−' : '+';
+    });
+  });
+</script>
+
 </body>
 </html>
