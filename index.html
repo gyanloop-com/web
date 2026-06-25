@@ -6,33 +6,33 @@
   <title>Gyanloop — India's Ivy League for the AI Age</title>
   
   <!-- ========== SEO / META TAGS ========== -->
-  <meta name="description" content="Gyanloop is India's Ivy League for the AI Age, founded by Sumit Haldar and co-founded by Soumik Debnath. Industry-integrated UG programmes built by 100+ leaders from Google, Microsoft, OpenAI, and more." />
-  <meta name="keywords" content="Gyanloop, AI education, Ivy League India, Sumit Haldar, Soumik Debnath, computer science, AI and business, tech education, Bangalore campus" />
+  <meta name="description" content="Gyanloop is India's Catalyst for Artificial Intelligence for the AI Age, founded by Sumit Haldar and co-founded by Soumik Debnath. Industry-integrated UG programmes built by 100+ leaders from Google, Microsoft, OpenAI, and more." />
+  <meta name="keywords" content="Gyanloop, India's Catalyst for Artificial Intelligence, Sumit Haldar, Soumik Debnath, computer science, AI and business, tech education, Bangalore campus" />
   <meta name="author" content="Sumit Haldar & Soumik Debnath" />
   <link rel="canonical" href="https://gyanloop.com/" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Gyanloop — India's Ivy League for the AI Age" />
-  <meta property="og:description" content="Industry-integrated UG programmes built by 100+ leaders. Founded by Sumit Haldar & Soumik Debnath." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  <meta property="og:description" content="Gyanloop is India's Catalyst for Artificial Intelligence for the AI Age, founded by Sumit Haldar and co-founded by Soumik Debnath. Industry-integrated UG programmes built by 100+ leaders from Google, Microsoft, OpenAI, and more." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/gyanloop.png" />
   <meta property="og:url" content="https://gyanloop.com/" />
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gyanloop — India's Ivy League for the AI Age" />
-  <meta name="twitter:description" content="Built by 100+ industry leaders. Founded by Sumit Haldar & Soumik Debnath." />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  <meta name="twitter:description" content="Gyanloop is India's Catalyst for Artificial Intelligence for the AI Age, founded by Sumit Haldar and co-founded by Soumik Debnath. Industry-integrated UG programmes built by 100+ leaders from Google, Microsoft, OpenAI, and more." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/gyanloop.png" />
   
   <!-- Favicon -->
-  <link rel="icon" href="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" type="image/png" />
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" />
+  <link rel="icon" href="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/favicon%20logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/favicon%20logo.png" />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=League+Gothic&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <style>
     /* ---------- RESET & BASE ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -283,7 +283,7 @@
       max-width: 900px;
       border-radius: 12px;
       overflow: hidden;
-      background: #1a1a2e;
+      background: #000000;
     }
     .hero-image img {
       width: 100%;
@@ -299,7 +299,7 @@
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 24px;
-      background: #1a1a2e;
+      background: #000000;
     }
     .hero-image-mobile img {
       width: 100%;
@@ -376,53 +376,206 @@
     .outcome-card p { font-size: 14px; color: var(--gray-500); margin-top: 4px; }
 
     /* ---------- PROGRAMME CARDS ---------- */
-    .program-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .program-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: box-shadow 0.2s;
+    /* ---------- base reset & variables ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --brand-dark-blue: #0b1a33;
+    --brand-blue: #1a5cff;
+    --brand-light-bg: #e9effa;
+    --border-light: #dde3ed;
+    --gray-500: #5b6b7e;
+    --bg-light: #f5f8fc;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #fff;
+    color: #1a2639;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .bg-light {
+    background: var(--bg-light);
+    padding: 60px 0 72px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--brand-dark-blue);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--gray-500);
+    max-width: 500px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* ---------- PROGRAMME CARDS ---------- */
+  .program-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 8px;
+  }
+
+  .program-card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  }
+
+  .program-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 20, 60, 0.08);
+    transform: translateY(-3px);
+  }
+
+  /* banner image – replaces video placeholder */
+  .program-card .banner-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #dce5f2; /* fallback */
+  }
+
+  .program-card .banner-image .banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(11, 26, 51, 0.05) 0%, rgba(0,0,0,0.02) 100%);
+    pointer-events: none;
+  }
+
+  .program-body {
+    padding: 20px 24px 24px;
+  }
+
+  .program-body .tag {
+    background: var(--brand-light-bg);
+    color: var(--brand-dark-blue);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 2px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .program-body h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--brand-dark-blue);
+    margin-bottom: 6px;
+  }
+
+  .program-body p {
+    color: var(--gray-500);
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .program-body .highlight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0 16px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .program-body .highlight-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #1e2a3a;
+  }
+
+  .program-body .highlight-list li .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    flex-shrink: 0;
+  }
+
+  /* learn more link – replaces subscribe button */
+  .learn-more-link {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--brand-blue);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    padding: 4px 0 2px;
+    letter-spacing: 0.3px;
+  }
+
+  .learn-more-link:hover {
+    color: #0d47d4;
+    border-bottom-color: var(--brand-blue);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 768px) {
+    .program-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
-    .program-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
-    .program-card .video-placeholder {
-      height: 200px;
-      background: #eef3f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-weight: 500;
-      position: relative;
+
+    .section-title {
+      font-size: 28px;
     }
-    .program-card .video-placeholder .play {
-      background: rgba(0,0,0,0.6);
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 20px;
+
+    .program-body h3 {
+      font-size: 22px;
     }
-    .program-body { padding: 20px 24px 24px; }
-    .program-body .tag {
-      background: var(--brand-light-bg);
-      color: var(--brand-dark-blue);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      padding: 2px 12px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 6px;
+
+    .program-card .banner-image {
+      height: 170px;
     }
-    .program-body h3 { font-size: 24px; font-weight: 700; color: var(--brand-dark-blue); margin-bottom: 6px; }
-    .program-body p { color: var(--gray-500); font-size: 14px; margin-bottom: 12px; }
-    .program-body .highlight-list { display: flex; flex-direction: column; gap: 6px; margin: 12px 0 16px; }
-    .program-body .highlight-list li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #333; }
-    .program-body .highlight-list li .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand-blue); }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 16px;
+    }
+
+    .bg-light {
+      padding: 40px 0 48px;
+    }
+
+    .program-body {
+      padding: 16px 18px 20px;
+    }
+
+    .program-card .banner-image {
+      height: 140px;
+    }
+  }
 
     /* ---------- TESTIMONIAL ---------- */
     .testimonial {
@@ -464,40 +617,140 @@
     .mentor-card p { font-size: 14px; color: var(--gray-500); }
 
     /* ---------- YOUTUBE VIDEOS ---------- */
+     /* ---------- base reset & variables ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --brand-dark-blue: #0b1a33;
+    --brand-blue: #1a5cff;
+    --brand-light-bg: #e9effa;
+    --border-light: #dde3ed;
+    --gray-500: #5b6b7e;
+    --bg-light: #f5f8fc;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #fff;
+    color: #1a2639;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .bg-light {
+    background: var(--bg-light);
+    padding: 60px 0 72px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--brand-dark-blue);
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--gray-500);
+    max-width: 500px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* ---------- YOUTUBE VIDEOS (updated) ---------- */
+  .youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .youtube-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+
+  .youtube-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 20, 60, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* video wrapper - maintains 16:9 aspect ratio */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #d0d7e0;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .youtube-card .body {
+    padding: 16px 20px 20px;
+  }
+
+  .youtube-card .body h5 {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--brand-dark-blue);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .youtube-card .body p {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin: 0;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 992px) {
     .youtube-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
     }
-    .youtube-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      overflow: hidden;
+  }
+
+  @media (max-width: 640px) {
+    .youtube-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
-    .youtube-card .thumb {
-      height: 180px;
-      background: #d0d7e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      color: #555;
-      position: relative;
+
+    .section-title {
+      font-size: 28px;
     }
-    .youtube-card .thumb .play-btn {
-      background: rgba(0,0,0,0.6);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 18px;
+
+    .bg-light {
+      padding: 40px 0 48px;
     }
-    .youtube-card .body { padding: 16px 20px; }
-    .youtube-card .body h5 { font-weight: 600; font-size: 15px; }
+
+    .youtube-card .body {
+      padding: 14px 16px 18px;
+    }
+  }
 
     /* ---------- FAQ ---------- */
     .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; margin: 0 auto; }
@@ -525,46 +778,132 @@
     .faq-item.open .answer { display: block; }
     .faq-item .plus { font-size: 20px; color: var(--brand-blue); }
 
-    /* ---------- SOCIAL MEDIA ---------- */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin: 16px 0 32px;
-    }
-    .social-links a {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 40px;
-      padding: 10px 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .social-links a:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
+   /* ---------- SOCIAL MEDIA ---------- */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin: 16px 0 32px;
+}
 
-    /* ---------- TOP ARTICLES ---------- */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .article-card {
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .article-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
-    .article-card .body { padding: 16px 20px 20px; }
-    .article-card .body h5 { font-weight: 600; font-size: 16px; margin-bottom: 4px; }
-    .article-card .body p { font-size: 14px; color: var(--gray-500); }
+.social-links a {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 40px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--brand-dark-blue);
+  transition: all 0.2s ease;
+}
 
+.social-links a:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 92, 255, 0.10);
+}
+
+.social-links a i {
+  font-size: 20px;
+  width: 24px;
+  text-align: center;
+}
+
+.social-links a:hover i {
+  color: var(--brand-blue);
+}
+
+/* ---------- TOP ARTICLES ---------- */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.article-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
+.article-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 20, 60, 0.08);
+  transform: translateY(-4px);
+}
+
+.article-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.article-card .body {
+  padding: 16px 20px 20px;
+}
+
+.article-card .body h5 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: var(--brand-dark-blue);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.article-card:hover .body h5 {
+  color: var(--brand-blue);
+}
+
+.article-card .body p {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-links a {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .social-links a i {
+    font-size: 18px;
+    width: 20px;
+  }
+
+  .article-card img {
+    height: 140px;
+  }
+}
     /* ---------- FOOTER ---------- */
     .footer {
       background: var(--black);
@@ -668,7 +1007,7 @@
 <nav class="main-nav">
   <div class="nav-logo">
     <a href="#">
-      <img src="https://raw.githubusercontent.com/sumitaidev/blogger/refs/heads/main/image%20host/GyanloopLOGO.png" alt="Gyanloop Logo" style="height:52px; width:auto;">
+      <img src="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/Gyanloop%20loo.png" alt="Gyanloop Logo" style="height:52px; width:auto;">
     </a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -678,9 +1017,10 @@
     <a href="#" class="active">Home</a>
     <a href="#">Programs</a>
     <a href="#">Admission & Fees</a>
-    <a href="#">Degree</a>
+
     <a href="#">Outcomes</a>
-    <a href="#">Campus Life</a>
+    <a href="#">Mentors</a>
+    <a href="#">Blog</a>
     <a href="#">FAQs</a>
   </div>
 </nav>
@@ -690,19 +1030,19 @@
   <div class="hero-wrapper">
     <!-- Mobile hero image (visible only on mobile) -->
     <div class="hero-image-mobile">
-      <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Gyanloop Campus" />
+      <img src="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/hero.gif" alt="Gyanloop Campus" />
     </div>
     
     <div class="hero-content">
-      <h1>India's League for the AI Age</h1>
-      <p>Industry Integrated UG Programmes Built by 100+ leaders from</p>
+      <h1>India's Catalyst for Artificial Intelligence</h1>
+      <p>Learn Industry Integrated Ai Tools like</p>
       <div class="badge-row">
         <img src="https://framerusercontent.com/images/XIQiyMIZSuyV5Zee7hNBsdcFhA.webp?width=1221&height=345" alt="Google" style="height:28px;">
-        <img src="https://framerusercontent.com/images/J6aEaYQPcYWh4nrK8QripUQOkF4.webp?width=354&height=112" alt="Microsoft" style="height:28px;">
-        <img src="https://framerusercontent.com/images/1LXozUB9IOXNQ0gcCVWyT7gnCw8.webp?width=287&height=112" alt="OpenAI" style="height:28px;">
-        <img src="https://framerusercontent.com/images/pxjnPbTaLqv0IflleNvwgfOBi34.webp?width=1746&height=345" alt="DeepMind" style="height:28px;">
-        <img src="https://framerusercontent.com/images/mtbHhO9yYXXsA7rJ0gJCQ6a3ML4.webp?width=364&height=112" alt="Uber" style="height:28px;">
-        <img src="https://framerusercontent.com/images/cavKTx5xjW3pzhMZrlkFTN2i7cY.webp?width=261&height=112" alt="Meta" style="height:28px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/microsoft-copilot-logo.svg" alt="copilot" style="height:28px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/gemini-ai.svg" alt="gemini" style="height:28px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/claude-logo.svg" alt="claude" style="height:28px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/perplexity-color-1-.svg" alt="perplexity" style="height:28px;">
+        <img src="https://cdn.worldvectorlogo.com/logos/apple-computer-rainbow.svg" alt="Apple" style="height:28px;">
       </div>
       <div class="hero-actions">
         <div class="subscribe-form">
@@ -724,54 +1064,19 @@
           </div>
         </div>
       </div>
-      <div class="deadline">June-2 Intake deadline : 26th June 2026</div>
+      <div class="deadline">200 + people have already joined!</div>
     </div>
 
     <!-- Desktop hero image (right side) -->
     <div class="hero-image">
-      <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Gyanloop Campus" />
+      <img src="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/hero.gif" alt="Gyanloop Campus" />
     </div>
   </div>
 </section>
 
-<!-- ==================== HIGHLIGHTS CARDS ==================== -->
-<div class="container" style="margin-top: -20px; padding-bottom: 40px;">
-  <div class="highlights-grid">
-    <div class="highlight-card"><div class="icon">⚡</div><h4>Learn by Building</h4><p>Future-proof curriculum with AI embedded from day one</p></div>
-    <div class="highlight-card"><div class="icon">🧪</div><h4>Industry Led Innovation Lab</h4><p>India's only deep tech lab for UG with funding support for startup</p></div>
-    <div class="highlight-card"><div class="icon">🏙️</div><h4>Bangalore</h4><p>Fully residential Urban Campus in India's Silicon Valley</p></div>
-    <div class="highlight-card"><div class="icon">👥</div><h4>Talented Peers</h4><p>In 2025 only the top 3.3% talented students were shortlisted</p></div>
-  </div>
-</div>
 
-<!-- ==================== OUTCOMES / PLACEMENTS ==================== -->
-<section class="bg-white">
-  <div class="container">
-    <h2 class="section-title" style="margin-bottom: 8px;">Top Companies Queuing Up Before Placement Season</h2>
-    <p class="section-sub" style="margin-bottom: 24px;">Via internships that convert to full-time offers</p>
-    <div class="stats-row">
-      <div class="stat-item"><h2>21 LPA</h2><p>Average CTC being offered on campus</p></div>
-      <div class="stat-item"><h2>46 LPA</h2><p>CTC on PPO</p></div>
-      <div class="stat-item"><h2>44 LPA</h2><p>CTC on PPO</p></div>
-      <div class="stat-item"><h2>38 LPA</h2><p>CTC on PPO</p></div>
-      <div class="stat-item"><h2>30 LPA</h2><p>CTC on PPO</p></div>
-    </div>
-    <div class="outcome-grid" style="margin-top: 16px;">
-      <div class="outcome-card">
-        <div class="logo-wrap"><img src="https://framerusercontent.com/images/HKA7pKmnGwrKVbUAh91gf1tfUI4.webp?width=789&height=267" alt="Amazon"></div>
-        <h5>46 LPA</h5><p>Scaler placed more learners in Amazon than all IITs combined.</p>
-      </div>
-      <div class="outcome-card">
-        <div class="logo-wrap"><img src="https://framerusercontent.com/images/pJUvI1TIdJuv2J8sOdnAxlWjD2M.webp?width=5564&height=1014" alt="Google" style="max-height:32px;"></div>
-        <h5>44 LPA</h5><p>1200+ hiring partners including MAANG & AI startups</p>
-      </div>
-      <div class="outcome-card">
-        <div class="logo-wrap"><img src="https://framerusercontent.com/images/M5Ng5KEd744AOvLVFG8piVaTM.webp?width=4492&height=1014" alt="Microsoft" style="max-height:32px;"></div>
-        <h5>38 LPA</h5><p>10+ startups founded by SST students, 1 incubated featured on Shark Tank</p>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 
 <!-- ==================== PROGRAMMES ==================== -->
 <section class="bg-light">
@@ -779,66 +1084,39 @@
     <h2 class="section-title text-center">Explore Programmes</h2>
     <p class="section-sub text-center" style="margin: 0 auto 32px;">Explore the programmes and choose your best fit</p>
     <div class="program-grid">
-      <div class="program-card">
-        <div class="video-placeholder"><div class="play">▶</div></div>
+      <!-- Card 1: Computer Science & AI -->
+      <div class="program-card" onclick="window.location.href='https://example.com/programme/cs-ai'">
+        <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop&crop=center&auto=format');">
+          <div class="banner-overlay"></div>
+        </div>
         <div class="program-body">
           <span class="tag">4 Year UGP</span>
-          <h3>Computer Science & AI</h3>
+          <h3 onclick="event.stopPropagation(); window.location.href='https://example.com/programme/cs-ai'">Computer Science & AI</h3>
           <p>Build real world software and advanced AI systems used by top tech companies</p>
           <ul class="highlight-list">
             <li><span class="dot"></span> 50+ projects and 1 year industry immersion</li>
             <li><span class="dot"></span> Learn advanced CS, AI/ML, system design and algo trading</li>
             <li><span class="dot"></span> Graduate as Senior Software Engineer and AI/ML Engineer</li>
           </ul>
-          <div class="subscribe-form" style="width:100%;">
-            <form id="emailSubscribeForm2" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
-              <input 
-                type="email" 
-                id="subscriberEmail2"
-                placeholder="Subscribe for updates" 
-                style="flex: 1; min-width: 120px; padding: 10px; border: 1px solid var(--border-light); border-radius: 4px; font-size: 14px;" 
-                required 
-              />
-              <button type="submit" class="btn-primary" style="padding: 10px 20px; cursor: pointer;">
-                Subscribe →
-              </button>
-            </form>
-            <div id="formMessage2" class="form-message">
-              <button class="close-btn" onclick="closeMessage('formMessage2')">×</button>
-              <span class="message-text"></span>
-            </div>
-          </div>
+          <a href="https://example.com/programme/cs-ai" class="learn-more-link">Learn More →</a>
         </div>
       </div>
-      <div class="program-card">
-        <div class="video-placeholder"><div class="play">▶</div></div>
+
+      <!-- Card 2: AI & Business -->
+      <div class="program-card" onclick="window.location.href='https://example.com/programme/ai-business'">
+        <div class="banner-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop&crop=center&auto=format');">
+          <div class="banner-overlay"></div>
+        </div>
         <div class="program-body">
           <span class="tag">4 Year UGP</span>
-          <h3>AI & Business</h3>
+          <h3 onclick="event.stopPropagation(); window.location.href='https://example.com/programme/ai-business'">AI & Business</h3>
           <p>Build AI products and ship to real users for top tech companies & startups</p>
           <ul class="highlight-list">
             <li><span class="dot"></span> 6 months building a tech startup, 6 months industry immersion</li>
             <li><span class="dot"></span> Learn interdisciplinary skills - CS, AI/ML, product thinking & business</li>
             <li><span class="dot"></span> Graduate as AI Product Manager, AI Consultant or Tech Founder</li>
           </ul>
-          <div class="subscribe-form" style="width:100%;">
-            <form id="emailSubscribeForm3" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
-              <input 
-                type="email" 
-                id="subscriberEmail3"
-                placeholder="Subscribe for updates" 
-                style="flex: 1; min-width: 120px; padding: 10px; border: 1px solid var(--border-light); border-radius: 4px; font-size: 14px;" 
-                required 
-              />
-              <button type="submit" class="btn-primary" style="padding: 10px 20px; cursor: pointer;">
-                Subscribe →
-              </button>
-            </form>
-            <div id="formMessage3" class="form-message">
-              <button class="close-btn" onclick="closeMessage('formMessage3')">×</button>
-              <span class="message-text"></span>
-            </div>
-          </div>
+          <a href="https://example.com/programme/ai-business" class="learn-more-link">Learn More →</a>
         </div>
       </div>
     </div>
@@ -851,20 +1129,15 @@
     <h2 class="section-title text-center">Super Mentors</h2>
     <p class="section-sub text-center" style="margin: 0 auto 32px;">Learn from the best in the industry</p>
     <div class="mentors-grid">
-      <div class="mentor-card">
-        <img src="https://framerusercontent.com/images/y0wtuUI1pHIVaDrMltIxiCksre8.webp?width=912&height=882" alt="Rajan Anandan">
-        <h4>Rajan Anandan</h4>
-        <p>Ex VP South-East Asia, Google</p>
+      <div class="mentor-card" onclick="window.location.href='https://sumit.gyanloop.com'">
+        <img src="https://i.ibb.co/TxBzGH5t/image.png" alt="sumit">
+        <h4 onclick="event.stopPropagation(); window.location.href='https://sumit.gyanloop.com'">Sumit Haldar</h4>
+        <p>Founder and Technical Lead, Gyanloop</p>
       </div>
-      <div class="mentor-card">
-        <img src="https://framerusercontent.com/images/DiubR4yD84NwE01RQ5zlVfOO8E.webp?width=912&height=882" alt="Arvind N">
-        <h4>Arvind N</h4>
-        <p>Co-Creator GPT-3 & 4, OpenAI</p>
-      </div>
-      <div class="mentor-card">
-        <img src="https://framerusercontent.com/images/2XkPhGyOrWPUVSzikTO0ssLoE4.webp?width=912&height=882" alt="Varun Mohan">
-        <h4>Varun Mohan</h4>
-        <p>Lead Engineer, Google DeepMind</p>
+      <div class="mentor-card" onclick="window.location.href='https://soumik.gyanloop.com'">
+        <img src="https://i.ibb.co/dJjH5Zhj/image.png" alt="Arvind N">
+        <h4 onclick="event.stopPropagation(); window.location.href='https://soumik.gyanloop.com'">Soumik Debnath</h4>
+        <p>Co-Founder & Content Creator, Gyanloop</p>
       </div>
     </div>
   </div>
@@ -876,17 +1149,58 @@
     <h2 class="section-title text-center">Latest YouTube Videos</h2>
     <p class="section-sub text-center" style="margin: 0 auto 32px;">Insights and talks from our community</p>
     <div class="youtube-grid">
+      <!-- Video 1: C প্রোগ্রামিং ল্যাঙ্গুয়েজ এর ধারনা -->
       <div class="youtube-card">
-        <div class="thumb"><div class="play-btn">▶</div></div>
-        <div class="body"><h5>Building Antigravity at Google DeepMind</h5><p>Varun Mohan shares his journey</p></div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/CJgEI5xKn6Y" 
+            title="C প্রোগ্রামিং ল্যাঙ্গুয়েজ এর ধারনা"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="body">
+          <h5>C প্রোগ্রামিং ল্যাঙ্গুয়েজ এর ধারনা</h5>
+          <p>সি প্রোগ্রামিং ভাষার মৌলিক ধারণা ও ইতিহাস</p>
+        </div>
       </div>
+
+      <!-- Video 2: (Second YouTube Link) -->
       <div class="youtube-card">
-        <div class="thumb"><div class="play-btn">▶</div></div>
-        <div class="body"><h5>OpenAI's first agent — Yash Kumar</h5><p>Creator of ChatGPT agents</p></div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/PFQAV-U9_aY" 
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="body">
+          <h5>OpenAI's first agent — Yash Kumar</h5>
+          <p>Creator of ChatGPT agents</p>
+        </div>
       </div>
+
+      <!-- Video 3: (Third YouTube Link) -->
       <div class="youtube-card">
-        <div class="thumb"><div class="play-btn">▶</div></div>
-        <div class="body"><h5>Rajan Anandan on excellence & failure</h5><p>Striving for success</p></div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/NENExty05-I" 
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="body">
+          <h5>Rajan Anandan on excellence & failure</h5>
+          <p>Striving for success</p>
+        </div>
       </div>
     </div>
   </div>
@@ -897,16 +1211,16 @@
   <div class="container">
     <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between; background: #f8faff; border-radius: 12px; padding: 32px 40px;">
       <div>
-        <h3 style="font-size: 28px; font-weight: 700; color: var(--brand-dark-blue);">Batch 2025 Admissions Stats</h3>
+        <h3 style="font-size: 28px; font-weight: 700; color: var(--brand-dark-blue);">India is a global powerhouse in AI</h3>
         <div style="display: flex; gap: 40px; margin-top: 12px; flex-wrap: wrap;">
-          <div><strong style="font-size: 32px; color: var(--black);">15,000</strong><br><span style="color: var(--gray-500);">NSET Takers</span></div>
-          <div><strong style="font-size: 32px; color: var(--black);">1,000</strong><br><span style="color: var(--gray-500);">Interviewed</span></div>
-          <div><strong style="font-size: 32px; color: var(--black);">250</strong><br><span style="color: var(--gray-500);">Selected</span></div>
-          <div><strong style="font-size: 32px; color: var(--brand-blue);">3.3%</strong><br><span style="color: var(--gray-500);">Selection Rate</span></div>
+          <div><strong style="font-size: 32px; color: var(--black);">4th </strong><br><span style="color: var(--gray-500);">in Global Usage</span></div>
+          <div><strong style="font-size: 32px; color: var(--black);">Tier-II </strong><br><span style="color: var(--gray-500);">Talent Growth</span></div>
+          <div><strong style="font-size: 32px; color: var(--black);">87% </strong><br><span style="color: var(--gray-500);">Enterprise Adoption</span></div>
+          <div><strong style="font-size: 32px; color: var(--brand-blue);">89% </strong><br><span style="color: var(--gray-500);"> of New Startups</span></div>
         </div>
       </div>
       <div style="max-width: 300px;">
-        <p style="font-weight: 600; color: var(--brand-dark-blue);">183+ students also secured offers from IITs, NITs, University of Toronto etc.</p>
+        <p style="font-weight: 600; color: var(--brand-dark-blue);">Stop searching for AI news. Let it come to you</p>
         <div class="subscribe-form" style="margin-top: 12px;">
           <form id="emailSubscribeForm4" style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
             <input 
@@ -935,10 +1249,10 @@
   <div class="container">
     <div class="testimonial">
       <div>
-        <blockquote>"Today, where even top-tier institutes like IITs are running old syllabi, Scaler does the job of producing high-quality engineers"</blockquote>
-        <div class="author">Amitabh Kant <span>Ex-CEO - NITI Aayog, G20 India Sherpa</span></div>
+        <blockquote>"With AI, over the next decade, expertise will become free, commonplace — great medical advice, great tutoring"</blockquote>
+        <div class="author">Bill Gates <span>Ex-CEO - Technology Adviser to Microsoft</span></div>
       </div>
-      <div class="avatar" style="background: #ccc; background-image: url('https://framerusercontent.com/images/cfA4yLurZrHRqZFSG51GQgotCM.png?width=169&height=160'); background-size: cover;"></div>
+      <div class="avatar" style="background: #ccc; background-image: url('https://i.ibb.co/F4Qk6h1y/image.png'); background-size: cover;"></div>
     </div>
   </div>
 </section>
@@ -950,24 +1264,73 @@
     <p class="section-sub text-center" style="margin: 0 auto 32px;">Everything you need to know about Gyanloop</p>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="question"><span>How is Gyanloop different from a regular engineering college?</span><span class="plus">+</span></div>
-        <div class="answer">Gyanloop offers an industry-integrated curriculum built by 100+ leaders from Google, Microsoft, OpenAI, etc. We focus on project-based learning, real-world applications, and early industry exposure.</div>
+        <div class="question" onclick="toggleFaq(this)">
+          <span>How is Gyanloop different from a traditional degree?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          We focus on <strong>job-ready skills</strong>, not just theory. Our curriculum is built with industry practitioners who bring real-world experience. You'll build a portfolio of 50+ hands-on projects, get 1 year of industry immersion, and graduate as a <strong>Senior Software Engineer</strong> or <strong>AI/ML Engineer</strong> — not a fresher.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="question"><span>What is the difference between CS & AI and AI & Business?</span><span class="plus">+</span></div>
-        <div class="answer">CS & AI is deep technical — you'll build complex systems and master AI/ML. AI & Business combines technical skills with product thinking and business strategy, ideal for those who want to build AI products and lead.</div>
+        <div class="question" onclick="toggleFaq(this)">
+          <span>What makes the CS & AI programme different from AI & Business?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          <strong>CS & AI</strong> is for builders — you'll dive deep into algorithms, system design, AI/ML, and algo trading. <strong>AI & Business</strong> is for product-minded technologists — you'll learn to build AI products, think like a founder, and lead cross-functional teams. Both include startup building and industry immersion.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="question"><span>Can I apply for both programmes simultaneously?</span><span class="plus">+</span></div>
-        <div class="answer">Yes, you can rank your preferences during the application process. You'll be considered for your top choice based on your profile and interview performance.</div>
+        <div class="question" onclick="toggleFaq(this)">
+          <span>Do I need prior coding experience to apply?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          Not at all. We start from the absolute basics and build up. What we care about is your <strong>curiosity, problem-solving ability, and drive</strong> to build things. Our curriculum is designed to take you from zero to industry-ready in 4 years.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="question"><span>Do I need coding experience before joining?</span><span class="plus">+</span></div>
-        <div class="answer">No prior coding experience is required. Our curriculum starts from the fundamentals and progressively builds advanced skills. A strong aptitude for problem-solving and curiosity is key.</div>
+        <div class="question" onclick="toggleFaq(this)">
+          <span>What is the admission process like?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          Our process is designed to identify talent and potential. It includes a <strong>skills assessment</strong> to evaluate logical reasoning and analytical thinking, followed by a <strong>personal interview</strong> where we get to know your goals and passion for technology.
+        </div>
       </div>
+
       <div class="faq-item">
-        <div class="question"><span>What is the NSET exam and how do I prepare for it?</span><span class="plus">+</span></div>
-        <div class="answer">NSET is our entrance test designed to assess logical reasoning, mathematical ability, and analytical thinking. We provide free mock tests and preparation material after you apply.</div>
+        <div class="question" onclick="toggleFaq(this)">
+          <span>What kind of career support do you provide?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          We offer <strong>1-on-1 mentorship, portfolio building, mock interviews, and career coaching</strong>. Our focus is on making you a standout candidate. You also get 6-12 months of paid industry immersion before graduation to gain real-world experience.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="question" onclick="toggleFaq(this)">
+          <span>Is Gyanloop a college? Will I get a degree?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          We are not a college — we are a <strong>tech skills accelerator</strong>. You'll graduate with a <strong>portfolio of 50+ projects</strong>, industry certifications, and a network of mentors. Our focus is on <strong>employability and real-world impact</strong>, not degrees.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="question" onclick="toggleFaq(this)">
+          <span>When will the next batch start?</span>
+          <span class="plus">+</span>
+        </div>
+        <div class="answer">
+          Our next cohort begins in <strong>August 2026</strong>. Applications are open now. Early applicants get access to pre-course material and mentorship sessions before the programme officially starts.
+        </div>
       </div>
     </div>
   </div>
@@ -979,25 +1342,27 @@
     <h2 class="section-title text-center">Follow Our Journey on Social Media</h2>
     <p class="section-sub text-center" style="margin: 0 auto 8px;">Join thousands of students building the future</p>
     <div class="social-links">
-      <a href="#"><span>📸</span> @gyanloop_tech</a>
-      <a href="#"><span>▶️</span> @GyanloopOfficial</a>
+      <a href="https://x.com/gyanloop_tech" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> @gyanloop_tech</a>
+      <a href="https://youtube.com/@GyanloopOfficial" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> @GyanloopOfficial</a>
+      <a href="https://instagram.com/gyanloop_tech" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> @gyanloop_tech</a>
+      <a href="https://facebook.com/gyanloop" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> /gyanloop</a>
     </div>
 
     <h2 class="section-title text-center" style="margin-top: 48px;">Top Articles</h2>
     <p class="section-sub text-center" style="margin: 0 auto 32px;">Insights from our community and industry leaders</p>
     <div class="articles-grid">
-      <div class="article-card">
+      <a href="https://example.com/article/iit-roorkee-scaler-ai" target="_blank" rel="noopener noreferrer" class="article-card">
         <img src="https://framerusercontent.com/images/CpFI4G1C9bd3Zox1ww3NWggHVo.webp?width=2130&height=1308" alt="IIT Roorkee">
         <div class="body"><h5>IIT Roorkee & Scaler Partner for AI Programs</h5><p>Addressing talent shortages with high-impact AI education.</p></div>
-      </div>
-      <div class="article-card">
+      </a>
+      <a href="https://example.com/article/digit-govtech-course" target="_blank" rel="noopener noreferrer" class="article-card">
         <img src="https://framerusercontent.com/images/7kQE43WTpax0ZQo5Sqi43xcYyDs.webp?width=2132&height=1310" alt="DIGIT GovTech">
         <div class="body"><h5>DIGIT GovTech Course Launched</h5><p>Training future public-tech leaders in partnership with eGov.</p></div>
-      </div>
-      <div class="article-card">
+      </a>
+      <a href="https://example.com/article/cs-aspirant-gyanloop-vs-iit" target="_blank" rel="noopener noreferrer" class="article-card">
         <img src="https://framerusercontent.com/images/Sab8iSlOvxxP2e8N8wmEpM3pH9M.webp?width=2132&height=1310" alt="CS aspirant">
         <div class="body"><h5>Why a CS aspirant chose Gyanloop over IIT</h5><p>Real-world learning and industry exposure tipped the scales.</p></div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1008,9 +1373,9 @@
     <div style="background: var(--brand-dark-blue); border-radius: 12px; padding: 32px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #fff;">
       <div>
         <h3 style="font-size: 28px; font-weight: 700;">Plan your next step with confidence</h3>
-        <p style="margin-top: 6px; opacity: 0.8;">Connect with our Admission Counsellor to:</p>
+        <p style="margin-top: 6px; opacity: 0.8;">Connect with us by subscribing to our newsletter</p>
         <ul style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
-          <li>✓ Understand the admission process</li>
+          <li>✓ Understand technology</li>
           <li>✓ Explore scholarships & degree options</li>
           <li>✓ Discover if Gyanloop is the right fit for your goals</li>
         </ul>
@@ -1034,7 +1399,7 @@
         </div>
       </div>
       <div style="flex-shrink: 0; max-width: 300px; border-radius: 8px; overflow: hidden; background: #0a2661; padding: 8px;">
-        <img src="https://img.magnific.com/free-photo/handsome-bearded-guy-posing-against-white-wall_273609-20597.jpg?semt=ais_hybrid&w=740&q=80" alt="Campus" style="width:100%; display:block; border-radius: 4px;">
+        <img src="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/hero.gif" alt="Campus" style="width:100%; display:block; border-radius: 4px;">
       </div>
     </div>
   </div>
@@ -1044,8 +1409,8 @@
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="https://raw.githubusercontent.com/sumitaidev/sumitaidev/refs/heads/main/asset/gyanloop.png" alt="Gyanloop" class="logo" style="height:40px; width:auto;">
-      <p style="margin-top: 12px;">#CreateImpact — India's Ivy League for the AI Age.</p>
+      <img src="https://raw.githubusercontent.com/gyanloop-com/web/refs/heads/main/image/Gyanloop%20loo.png" alt="Gyanloop" class="logo" style="height:90px; width:auto;">
+      <p style="margin-top: 12px;">#CreateImpact — India's  AI Age.</p>
       <p style="font-size: 13px; color: #888; margin-top: 4px;">Founded by Sumit Haldar &amp; Soumik Debnath</p>
       <div class="footer-social">
         <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
@@ -1057,7 +1422,7 @@
     <div class="footer-col"><h5>Resources</h5><a href="#">Events</a><a href="#">Scaler Topics</a><a href="#">Alumni Review</a><a href="#">Scaler Blogs</a><a href="#">Careers</a><a href="#">Terms of use</a><a href="#">Privacy Policy</a></div>
     <div class="footer-col"><h5>Other</h5><a href="#">About Us</a><a href="#">Hire from us</a><a href="#">Become a Mentor</a><a href="#">Become a TA</a></div>
   </div>
-  <div class="footer-bottom">© 2026 Gyanloop — Built with ❤️ by Sumit Haldar &amp; Soumik Debnath</div>
+  <div class="footer-bottom">© 2026 Gyanloop — Built with ❤️ by Sumit Haldar </div>
   <br />
 <br />
 <br />
